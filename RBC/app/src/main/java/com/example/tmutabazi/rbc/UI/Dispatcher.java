@@ -156,7 +156,7 @@ public class Dispatcher extends ActionBarActivity {
                 fragment.setArguments(arg);
                 break;
             case 1:
-                Intent ip = new Intent(Dispatcher.this, NotificationForm2.class);
+                Intent ip = new Intent(Dispatcher.this, ParseJsonFile.class);
                 startActivity(ip);
                 break;
             case 2:

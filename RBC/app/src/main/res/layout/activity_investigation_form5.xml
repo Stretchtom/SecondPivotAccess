@@ -26,7 +26,7 @@
         android:inputType="number"
         android:ems="10"
         android:hint="Total number of houses in village"
-        android:id="@+id/editText27"
+        android:id="@+id/numberOfHouses"
         android:layout_below="@+id/textView88"
         android:layout_alignLeft="@+id/textView88"
         android:layout_alignStart="@+id/textView88"
@@ -38,11 +38,11 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText28"
+        android:id="@+id/numberOfInhabitants"
         android:hint="Number of inhabitants in village"
-        android:layout_below="@+id/editText27"
-        android:layout_alignLeft="@+id/editText27"
-        android:layout_alignStart="@+id/editText27"
+        android:layout_below="@+id/numberOfHouses"
+        android:layout_alignLeft="@+id/numberOfHouses"
+        android:layout_alignStart="@+id/numberOfHouses"
         android:layout_marginTop="10dp"
         android:textSize="25dp" />
 
@@ -52,7 +52,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Type of habitat:"
         android:id="@+id/textView89"
-        android:layout_below="@+id/editText28"
+        android:layout_below="@+id/numberOfInhabitants"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinner5"
-        android:layout_below="@+id/editText28"
+        android:layout_below="@+id/numberOfInhabitants"
         android:layout_toRightOf="@+id/textView89"
         android:layout_toEndOf="@+id/textView89"
         android:layout_marginLeft="90dp"
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Houses with eaves/holes"
-        android:id="@+id/textView91"
+        android:id="@+id/houses"
         android:layout_below="@+id/textView90"
         android:layout_alignLeft="@+id/textView90"
         android:layout_alignStart="@+id/textView90"
@@ -105,14 +105,14 @@
         android:textColor="#ff000000"
         android:textSize="30dp" />
     <RadioGroup
-        android:id="@+id/radioSex"
+        android:id="@+id/housesWithHoles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_toRightOf="@+id/textView91"
-        android:layout_toEndOf="@+id/textView91"
+        android:layout_toRightOf="@+id/houses"
+        android:layout_toEndOf="@+id/houses"
         android:layout_marginBottom="20dp"
-        android:layout_alignTop="@+id/textView91">
+        android:layout_alignTop="@+id/houses">
 
 
 
@@ -147,7 +147,7 @@
         android:text="Next"
         android:id="@+id/button5"
         android:textColor="#ff000000"
-        android:layout_below="@+id/radioSex"
+        android:layout_below="@+id/housesWithHoles"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>

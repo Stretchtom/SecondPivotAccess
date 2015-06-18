@@ -31,7 +31,7 @@
         android:textColor="#ff000000"
         android:textSize="30dp" />
     <RadioGroup
-        android:id="@+id/radiodanger3"
+        android:id="@+id/day28PresenceOfDangerSigns"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/textView60"
@@ -85,7 +85,7 @@
     <EditText
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText51"
+        android:id="@+id/day28Date"
         android:layout_alignTop="@+id/textView61"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -96,7 +96,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Current temperature axillary"
         android:id="@+id/textView62"
-        android:layout_below="@+id/editText51"
+        android:layout_below="@+id/day28Date"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
@@ -108,7 +108,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText52"
+        android:id="@+id/day28Temperature"
         android:layout_alignTop="@+id/textView62"
         android:layout_toRightOf="@+id/textView59"
         android:layout_toEndOf="@+id/textView59" />
@@ -121,14 +121,14 @@
         android:id="@+id/textView63"
         android:textColor="#ff000000"
         android:textSize="30dp"
-        android:layout_alignBottom="@+id/editText52"
-        android:layout_toRightOf="@+id/radiodanger3"
-        android:layout_toEndOf="@+id/radiodanger3" />
+        android:layout_alignBottom="@+id/day28Temperature"
+        android:layout_toRightOf="@+id/day28PresenceOfDangerSigns"
+        android:layout_toEndOf="@+id/day28PresenceOfDangerSigns" />
 
     <EditText
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText54"
+        android:id="@+id/statusComments"
         android:hint="Comments if visit is not on day 3, 14 and 28 "
         android:textSize="25dp"
         android:layout_below="@+id/textView62"
@@ -146,7 +146,7 @@
         android:text="Next"
         android:id="@+id/button10"
         android:textColor="#ff000000"
-        android:layout_below="@+id/editText54"
+        android:layout_below="@+id/statusComments"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="64dp" />

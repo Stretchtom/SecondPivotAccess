@@ -35,7 +35,7 @@
     <EditText
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText19"
+        android:id="@+id/latitude"
         android:layout_alignTop="@+id/textView22"
         android:layout_alignRight="@+id/textView30"
         android:layout_alignEnd="@+id/textView30" />
@@ -48,14 +48,14 @@
         android:id="@+id/textView23"
         android:textColor="#ff010101"
         android:textSize="30dp"
-        android:layout_alignTop="@+id/editText19"
+        android:layout_alignTop="@+id/latitude"
         android:layout_alignRight="@+id/textView28"
         android:layout_alignEnd="@+id/textView28" />
 
     <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText20"
+        android:id="@+id/longitude"
         android:layout_above="@+id/textView24"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -66,7 +66,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Elevation"
         android:id="@+id/textView24"
-        android:layout_below="@+id/editText19"
+        android:layout_below="@+id/latitude"
         android:layout_alignLeft="@+id/textView22"
         android:layout_alignStart="@+id/textView22"
         android:layout_marginTop="10dp"
@@ -131,7 +131,7 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText22"
+        android:id="@+id/ifOther"
         android:layout_alignTop="@+id/textView27"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -167,8 +167,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner2"
         android:layout_below="@+id/textView28"
-        android:layout_toRightOf="@+id/editText19"
-        android:layout_toEndOf="@+id/editText19"
+        android:layout_toRightOf="@+id/latitude"
+        android:layout_toEndOf="@+id/latitude"
         android:layout_marginTop="10dp" />
 
     <TextView
@@ -188,7 +188,7 @@
     <EditText
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText23"
+        android:id="@+id/parasiteDensity"
         android:layout_alignLeft="@+id/textView23"
         android:layout_alignStart="@+id/textView23"
         android:layout_below="@+id/textView29"
