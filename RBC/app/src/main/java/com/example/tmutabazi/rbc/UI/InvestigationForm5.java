@@ -8,30 +8,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 
-
-import com.example.tmutabazi.rbc.InvestigationClass.InvestigationClass;
-
 import com.example.tmutabazi.rbc.R;
-
 
 
 public class InvestigationForm5 extends ActionBarActivity {
     private Spinner one;
     private Spinner two;
     private Button next;
-    private EditText numberOfHouses;
-    private EditText numberOfInhabitants;
-
-    private RadioGroup houseWithHoles;
-    private RadioButton  houseWithHolesRadioButton;
-
-
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_investigation_form5);
@@ -42,42 +27,16 @@ public class InvestigationForm5 extends ActionBarActivity {
         two = (Spinner)findViewById(R.id.spinner6);
         two.setAdapter(ArrayAdapter.createFromResource(this, R.array.LocationOfHouse, R.layout.spinner5));
         next = (Button) findViewById(R.id.button5);
-        numberOfHouses = (EditText) findViewById(R.id.numberOfHouses);
-        numberOfInhabitants = (EditText) findViewById(R.id.numberOfInhabitants);
-        houseWithHoles = (RadioGroup) findViewById(R.id.housesWithHoles);
-
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                InvestigationClass investigation = populateObject();
                 Intent ip = new Intent(InvestigationForm5.this, InvestigationForm6.class);
-                ip.putExtra("myObject", investigation);
                 startActivity(ip);
 
             }
         });
     }
-    public InvestigationClass populateObject ()
-    {
-        Intent intent = getIntent();
-        InvestigationClass investigation = (InvestigationClass) intent.getSerializableExtra("myObject");
-        String numberOfHouses1 = numberOfHouses.getText().toString();
-        int numberOfHouses2 = Integer.parseInt(numberOfHouses1 );
-        investigation.setTotalNumberOfHousesInVillage(numberOfHouses2);
-        String numberOfInhabitants1 = numberOfInhabitants.getText().toString();
-        int  numberOfInhabitants2 = Integer.parseInt( numberOfInhabitants1);
-        investigation.setTotalNumberOfInhabitantsInVillage(numberOfInhabitants2);
-        String typeOfHabitat = (one.getSelectedItem().toString());
-        investigation.setTypeOfHabitat(typeOfHabitat);
-        String houseLocation =  (two.getSelectedItem().toString());
-        investigation.setHouseLocation(houseLocation);
-        int selected_id = houseWithHoles.getCheckedRadioButtonId();
-        houseWithHolesRadioButton = (RadioButton) findViewById( selected_id);
-        String radioButtonText =  houseWithHolesRadioButton.getText().toString();
-        investigation.setHousesWithHoles(radioButtonText);
-        return investigation;
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

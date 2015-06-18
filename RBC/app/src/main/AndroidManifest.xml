@@ -2,9 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tmutabazi.rbc" >
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/rbclogo"
@@ -76,20 +75,18 @@
             android:label="@string/title_activity_investigation_form5" >
         </activity>
         <activity
-            android:name=".UI.InvestigationForm6"
-            android:label="@string/title_activity_investigation_form6" >
-        </activity>
-        <activity
             android:name=".UI.CaseFollowUp1"
             android:label="@string/title_activity_case_follow_up" >
         </activity>
         <activity
+
             android:name=".UI.Dispatcher"
             android:label="@string/title_activity_dispatcher" >
         </activity>
         <activity
             android:name=".UI.addFOCI"
             android:label="@string/title_activity_add_foci" >
+
             android:name=".InvestigationForm6"
             android:label="@string/title_activity_investigation_form6" >
         </activity>
@@ -116,10 +113,6 @@
         <activity
             android:name=".UI.CaseFollowUp7"
             android:label="@string/title_activity_case_follow_up8" >
-        </activity>
-        <activity
-            android:name=".UI.ParseJsonFile"
-            android:label="@string/title_activity_parse_json_file" >
         </activity>
     </application>
 

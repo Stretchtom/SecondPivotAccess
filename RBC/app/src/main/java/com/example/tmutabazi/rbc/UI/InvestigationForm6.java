@@ -1,18 +1,13 @@
 package com.example.tmutabazi.rbc.UI;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RadioButton;
-
-import com.example.tmutabazi.rbc.InvestigationClass.InvestigationClass;
 
 import com.example.tmutabazi.rbc.R;
 
@@ -26,66 +21,23 @@ public class InvestigationForm6 extends ActionBarActivity implements View.OnClic
     private EditText date2;
     private EditText date3;
     private EditText date4;
-    private EditText  completedBy;
-    private EditText completedDesignation;
-    private EditText completedDate;
-    private EditText verifiedBy;
-    private EditText verifiedDesignation;
-    private EditText verifiedDate;
-    private Button submit;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_investigation_form6);
         android.support.v7.app.ActionBar ab = getSupportActionBar();
         ab.setTitle("INVESTIGATION FORM    6 OUT OF 6");
-        date1 = (EditText) findViewById(R.id.completedDate);
-        date2 = (EditText) findViewById(R.id.verifiedDate);
+        date1 = (EditText) findViewById(R.id.editText38);
+        date2 = (EditText) findViewById(R.id.editText42);
         date3 = (EditText) findViewById(R.id.editText44);
         date4 = (EditText) findViewById(R.id.editText45);
-        completedBy = (EditText) findViewById(R.id.completedBy);
-        completedDesignation = (EditText) findViewById(R.id.completedDesignation);
-        verifiedBy = (EditText) findViewById(R.id.verifiedBy);
-        verifiedDesignation= (EditText) findViewById(R.id. VerifiedDesignation);
-        submit = (Button) findViewById(R.id.submit);
         date1.setOnClickListener(this);
         date2.setOnClickListener(this);
         date3.setOnClickListener(this);
         date4.setOnClickListener(this);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                populateObject();
-                Intent ip = new Intent(InvestigationForm6.this, Dispatcher.class);
-                startActivity(ip);
-
-            }
-        });
-
 
     }
 
-   public void populateObject ()
-   {
-       Intent intent = getIntent();
-       InvestigationClass investigation = (InvestigationClass) intent.getSerializableExtra("myObject");
 
-       String completedBy1 = completedBy.getText().toString();
-       investigation.setCompletedBy(completedBy1);
-
-
-       String completedDate = date1.getText().toString();
-       investigation.setCompletedDate(completedDate );
-       String completedDesignation1 = completedDesignation.getText().toString();
-       investigation.setCompletedDesignation(completedDesignation1);
-       String verifiedBy1 = verifiedBy.getText().toString();
-       investigation.setVerifiedBy(verifiedBy1);
-       String verifiedDate = date2.getText().toString();
-       investigation.setVerifiedDate(verifiedDate);
-       String verifiedDesignation1 = verifiedDesignation.getText().toString();
-       investigation.setVerifiedDesignation(verifiedDesignation1);
-
-   }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -100,7 +52,7 @@ public class InvestigationForm6 extends ActionBarActivity implements View.OnClic
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
         switch (v.getId()) {
-            case R.id.completedDate:
+            case R.id.editText38:
                 DatePickerDialog datePicker=new DatePickerDialog(InvestigationForm6.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -115,7 +67,7 @@ public class InvestigationForm6 extends ActionBarActivity implements View.OnClic
 
                 break;
 
-            case R.id.verifiedDate:
+            case R.id.editText42:
                 DatePickerDialog datePicker1=new DatePickerDialog(InvestigationForm6.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear,

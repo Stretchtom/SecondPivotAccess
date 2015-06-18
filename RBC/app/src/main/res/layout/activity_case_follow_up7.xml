@@ -31,7 +31,7 @@
         android:textColor="#ff000000"
         android:textSize="30dp" />
     <RadioGroup
-        android:id="@+id/isPcrtaken"
+        android:id="@+id/radiosbloodSpot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -132,11 +132,11 @@
         android:textColor="#ff000000"
         android:textSize="30dp"
         android:layout_below="@+id/textView74"
-        android:layout_toLeftOf="@+id/completedDose"
-        android:layout_toStartOf="@+id/completedDose"
+        android:layout_toLeftOf="@+id/radiostreatmentDose"
+        android:layout_toStartOf="@+id/radiostreatmentDose"
         android:layout_marginTop="10dp" />
     <RadioGroup
-        android:id="@+id/completedDose"
+        android:id="@+id/radiostreatmentDose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -175,7 +175,7 @@
     <EditText
         android:layout_width="600dp"
         android:layout_height="wrap_content"
-        android:id="@+id/notes"
+        android:id="@+id/editText56"
         android:hint="Notes"
         android:textSize="25dp"
         android:layout_below="@+id/textView75"
@@ -188,7 +188,7 @@
         android:text="Next"
         android:id="@+id/button12"
         android:textColor="#ff000000"
-        android:layout_below="@+id/notes"
+        android:layout_below="@+id/editText56"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

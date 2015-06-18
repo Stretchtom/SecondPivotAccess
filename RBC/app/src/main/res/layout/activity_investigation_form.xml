@@ -20,13 +20,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="District:"
+        android:text="District"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="30dp"
         android:textColor="#ff000000" />
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/notification_date"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView7"
+        android:layout_toEndOf="@+id/textView7" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,7 +51,7 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/dateOfInvestigation"
+        android:id="@+id/editText"
         android:layout_alignBottom="@+id/textView2"
         android:layout_toRightOf="@+id/textView6"
         android:layout_toEndOf="@+id/textView6" />
@@ -53,20 +60,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Name of facility: HC:"
+        android:text="Name of facility: HC"
         android:id="@+id/textView3"
-        android:layout_below="@+id/dateOfInvestigation"
+        android:layout_below="@+id/editText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
         android:textSize="30dp"
         android:textColor="#ff000000" />
 
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/phoneNumber"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Hospital:"
+        android:text="Hospital"
         android:id="@+id/textView4"
         android:layout_below="@+id/textView3"
         android:layout_alignLeft="@+id/textView3"
@@ -74,6 +89,14 @@
         android:layout_marginTop="10dp"
         android:textSize="30dp"
         android:textColor="#ff000000" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/WorkSector"
+        android:layout_below="@+id/textView3"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,10 +114,10 @@
     <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/indexCaseCodeeNumbero"
+        android:id="@+id/village"
         android:layout_alignTop="@+id/textView5"
-        android:layout_alignLeft="@+id/investigationCaseNumber"
-        android:layout_alignStart="@+id/investigationCaseNumber"
+        android:layout_alignLeft="@+id/dateOfTransfusion"
+        android:layout_alignStart="@+id/dateOfTransfusion"
         android:layout_alignBottom="@+id/textView5" />
 
     <TextView
@@ -103,10 +126,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Investigation Case No"
         android:id="@+id/textView6"
-        android:layout_below="@+id/indexCaseCodeeNumbero"
+        android:layout_below="@+id/village"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:inputType="number"
         android:layout_marginTop="10dp"
         android:textSize="30dp"
         android:textColor="#ff000000" />
@@ -114,8 +136,8 @@
     <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/investigationCaseNumber"
-        android:layout_above="@+id/FirstnameOfPatient"
+        android:id="@+id/dateOfTransfusion"
+        android:layout_above="@+id/returnInDate"
         android:layout_alignRight="@+id/scrollView"
         android:layout_alignEnd="@+id/scrollView" />
 
@@ -135,10 +157,10 @@
     <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/FirstnameOfPatient"
+        android:id="@+id/returnInDate"
         android:layout_below="@+id/textView6"
-        android:layout_alignLeft="@+id/investigationCaseNumber"
-        android:layout_alignStart="@+id/investigationCaseNumber" />
+        android:layout_alignLeft="@+id/dateOfTransfusion"
+        android:layout_alignStart="@+id/dateOfTransfusion" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -156,10 +178,10 @@
     <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/surnameOfPatient"
-        android:layout_below="@+id/FirstnameOfPatient"
-        android:layout_alignLeft="@+id/FirstnameOfPatient"
-        android:layout_alignStart="@+id/FirstnameOfPatient" />
+        android:id="@+id/country"
+        android:layout_below="@+id/returnInDate"
+        android:layout_alignLeft="@+id/returnInDate"
+        android:layout_alignStart="@+id/returnInDate" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -178,7 +200,7 @@
     <EditText
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:id="@+id/age"
+        android:id="@+id/editText9"
         android:layout_below="@+id/textView8"
         android:layout_toRightOf="@+id/textView"
         android:layout_toEndOf="@+id/textView" />
@@ -196,31 +218,5 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/districtSpinner"
-        android:layout_above="@+id/textView2"
-        android:layout_toRightOf="@+id/textView4"
-        android:layout_toEndOf="@+id/textView4" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/facilitySpinner"
-        android:layout_below="@+id/dateOfInvestigation"
-        android:layout_alignLeft="@+id/dateOfInvestigation"
-        android:layout_alignStart="@+id/dateOfInvestigation"
-        android:layout_marginTop="10dp" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/hospitalSpinner"
-        android:layout_alignTop="@+id/textView4"
-        android:layout_alignLeft="@+id/districtSpinner"
-        android:layout_alignStart="@+id/districtSpinner"
-        android:layout_marginLeft="10dp" />
-
-    >
+  >
 </RelativeLayout>

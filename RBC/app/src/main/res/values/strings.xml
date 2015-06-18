@@ -94,42 +94,12 @@
 
 
     </string-array>
-
-<string-array name="district">
-<item>Nyarugenge</item>
-<item>Rubavu</item>
-
-
-</string-array>
-    <string-array name="hospital">
-        <item>Kibagabaga</item>
-        <item>CHK</item>
-
-
-    </string-array>
-    <string-array name="Facility">
-        <item>Facility A</item>
-        <item>Facility B</item>
-
-
-    </string-array>
-    <string-array name="sector">
-        <item>Sector A</item>
-        <item>Sector B</item>
-
-
-    </string-array>
-    <string-array name="cell">
-        <item>Cell A</item>
-        <item>Cell B</item>
-
-
-    </string-array>
     <string name="title_activity_case_follow_up2">CaseFollowUp2</string>
     <string name="title_activity_case_follow_up3">CaseFollowUp3</string>
     <string name="title_activity_case_follow_up4">CaseFollowUp4</string>
     <string name="title_activity_case_follow_up5">CaseFollowUp5</string>
     <string name="title_activity_case_follow_up7">CaseFollowUp7</string>
     <string name="title_activity_case_follow_up8">CaseFollowUp8</string>
-    <string name="title_activity_parse_json_file">ParseJsonFile</string>
+
+    <string name="Prompt">Select...</string>
     </resources>

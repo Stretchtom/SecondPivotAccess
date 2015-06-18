@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,11 +13,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-
-import com.example.tmutabazi.rbc.CaseFollowupClass.CaseFollowUpClass;
-
 import com.example.tmutabazi.rbc.R;
-
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -29,12 +24,6 @@ public class CaseFollowUp1 extends ActionBarActivity implements View.OnClickList
     private Button next;
     private EditText date1;
     private EditText date2;
-    private Spinner district;
-    private Spinner hospital;
-    private Spinner healthFacility;
-    private EditText nationalIdNumber;
-    private EditText healthFacilityOfficer;
-    private EditText caseCodeNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,60 +34,20 @@ public class CaseFollowUp1 extends ActionBarActivity implements View.OnClickList
         one = (Spinner)findViewById(R.id.spinner7);
         one.setAdapter(ArrayAdapter.createFromResource(this, R.array.MethodOfDiagnosis, R.layout.spinner6));
         next = (Button) findViewById(R.id.button7);
-        date1 = (EditText) findViewById(R.id.followUpDate);
-        date2 = (EditText) findViewById(R.id.diagnosisDate);
-        nationalIdNumber = (EditText) findViewById(R.id.nationalId);
-        nationalIdNumber.setInputType(InputType.TYPE_CLASS_NUMBER);
-        healthFacilityOfficer = (EditText) findViewById(R.id.healthFacilityOfficer);
-        caseCodeNumber = (EditText) findViewById(R.id.caseCodeNumber);
-        caseCodeNumber.setInputType(InputType.TYPE_CLASS_NUMBER);
-
+        date1 = (EditText) findViewById(R.id.editText31);
+        date2 = (EditText) findViewById(R.id.editText35);
         date1.setOnClickListener(this);
         date2.setOnClickListener(this);
-        district = (Spinner)findViewById(R.id.district);
-        district.setAdapter(ArrayAdapter.createFromResource(this, R.array.district, R.layout.spinner6));
-        hospital= (Spinner)findViewById(R.id.hospital);
-        hospital.setAdapter(ArrayAdapter.createFromResource(this, R.array.hospital, R.layout.spinner6));
-        healthFacility = (Spinner)findViewById(R.id.healthFacility);
-        healthFacility.setAdapter(ArrayAdapter.createFromResource(this, R.array.Facility, R.layout.spinner6));
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CaseFollowUpClass caseFollowUp = populateObject();
                 Intent ip = new Intent(CaseFollowUp1.this, CaseFollowUp2.class);
-                ip.putExtra("myObject", caseFollowUp);
                 startActivity(ip);
 
             }
         });
     }
-    public CaseFollowUpClass populateObject ()
-    {
-        CaseFollowUpClass caseFollowUp = new CaseFollowUpClass();
-        String followUpDate = date1.getText().toString();
-        caseFollowUp.setFollow_UpDate(followUpDate);
-        String diagnoseDate = date2.getText().toString();
-        caseFollowUp.setCaseDate(diagnoseDate);
-        String district1 =  (district.getSelectedItem().toString());
-       // Search for the correspondingID
-        caseFollowUp.setDistrictId(1);
-        String hospital1 =  (hospital.getSelectedItem().toString());
-        // Search for the correspondingID
-        caseFollowUp.setHospitalId(2);
-        String healthFacility1 =  (healthFacility.getSelectedItem().toString());
-        // Search for the correspondingID
-        caseFollowUp.setFacilityId(3);
-        String nationalIdNumber1 = nationalIdNumber.getText().toString();
-        caseFollowUp.setNationalIdNumber( nationalIdNumber1);
-        String healthFacilityOfficer1 = healthFacilityOfficer.getText().toString();
-        caseFollowUp.setHealthFacilityOfficer(healthFacilityOfficer1);
-        String diagnosisMethod =  (one.getSelectedItem().toString());
-        caseFollowUp.setMethodOfDiagnosis( diagnosisMethod);
-        String caseCodeNumber1 = caseCodeNumber.getText().toString();
-        int caseCodeNumber2 = Integer.parseInt(caseCodeNumber1);
-        caseFollowUp.setCaseCodeNumber(caseCodeNumber2);
-        return caseFollowUp;
-    }
+
     public void onClick(View v) {
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT-4:00"));
         int year = calendar.get(Calendar.YEAR);
@@ -110,7 +59,7 @@ public class CaseFollowUp1 extends ActionBarActivity implements View.OnClickList
 
         switch (v.getId())
         {
-            case R.id.followUpDate:
+            case R.id.editText31 :
                 DatePickerDialog datePicker=new DatePickerDialog(CaseFollowUp1.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -125,7 +74,7 @@ public class CaseFollowUp1 extends ActionBarActivity implements View.OnClickList
 
                 break;
 
-            case R.id.diagnosisDate:
+            case R.id.editText35 :
                 DatePickerDialog datePicker1=new DatePickerDialog(CaseFollowUp1.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear,
