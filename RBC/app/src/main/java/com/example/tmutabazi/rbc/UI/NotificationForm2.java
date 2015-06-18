@@ -7,19 +7,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.tmutabazi.rbc.Notifiation.Notification;
 import com.example.tmutabazi.rbc.R;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -49,82 +46,22 @@ public class NotificationForm2 extends ActionBarActivity implements View.OnClick
         final String gender = i.getStringExtra("gender");
         notification = (Notification) i.getSerializableExtra("object");
         DOB = (EditText) findViewById(R.id.DOB);
-        pregnant = (RadioGroup) findViewById(R.id.radioPregnant);
         DOB.setOnClickListener(this);
-        /* if (gender.equals("M"))
-         {
-             for (int j = 0; j < pregnant.getChildCount(); j++) {
-                 pregnant.getChildAt(j).setEnabled(false);
-             }
-         }
-*/
-
-        ArrayList tExp = new ArrayList();
-        for(int j=1;j<=50;j++)
-        {
-            tExp.add(j);
-        }
-        tExp.add(0,"Select One");
-        final Spinner sp = (Spinner) findViewById(R.id.residentialDistrict);
-        final Spinner sp1 = (Spinner) findViewById(R.id.sektor);
-        final Spinner sp2 = (Spinner) findViewById(R.id.cell);
-        final Spinner sp3 = (Spinner) findViewById(R.id.village);
-        final ArrayAdapter<String> adp1=new ArrayAdapter<String>(this,R.layout.spinner,tExp);
-        adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp.setAdapter(adp1);
-        sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
 
-                if(position == 0)
-                {
-                    sp1.setEnabled(false);
-                    sp2.setEnabled(false);
-                    sp3.setEnabled(false);
-                }
-                else {
-
-                    sp1.setEnabled(true);
-                    sp1.setAdapter(adp1);
-                    sp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                            if(position == 0)
-                            {
-
-                            }
-                            else
-                            {
-                                sp2.setEnabled(true);
-                            }
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-
-                        }
-                    });
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        Toast.makeText(NotificationForm2.this,
+                notification.getDate(), Toast.LENGTH_SHORT).show();
         next2 = (Button) findViewById(R.id.next2);
 
         next2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-               notification = objectBuilding(notification);
+                objectBuilding(notification);
 
                 age = (EditText) findViewById(R.id.age);
                 nationality = (EditText) findViewById(R.id.nationality);
-                phoneNumber = (EditText) findViewById(R.id.phoneNumber);
+               // phoneNumber = (EditText) findViewById(R.id.phoneNumber);
                 notification.setPatientInformation(firstName,surName,gender,nationality.getText().toString(),Integer.parseInt(age.getText().toString()),Integer.parseInt(phoneNumber.getText().toString()),DOB.getText().toString());
 
 
@@ -150,7 +87,7 @@ public class NotificationForm2 extends ActionBarActivity implements View.OnClick
     public Notification objectBuilding(Notification notification)
     {
 
-
+      pregnant = (RadioGroup) findViewById(R.id.radioPregnant);
       pregnantSelected = (RadioButton) findViewById(pregnant.getCheckedRadioButtonId());
         notification.setPregnancy(pregnantSelected.getText().toString());
       sameAddress = (RadioGroup) findViewById(R.id.radioAddress);

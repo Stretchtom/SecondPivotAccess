@@ -43,26 +43,10 @@ public class NotificationForm3 extends ActionBarActivity implements View.OnClick
 
         date = (EditText) findViewById(R.id.illnessDate);
         date.setOnClickListener(this);
-        date1 = (EditText) findViewById(R.id.dateOfTransfusion);
+        date1 = (EditText) findViewById(R.id.investigationCaseNumber);
+        date1.setOnClickListener(this);
         travelFrequency = (Spinner)findViewById(R.id.spinner);
         travelFrequency.setAdapter(ArrayAdapter.createFromResource(this, R.array.frequency, R.layout.spinner));
-        bloodTransfusion = (RadioGroup) findViewById(R.id.radioBlood);
-        bloodTransfusion.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-                if (checkedId == R.id.radioNoBlood) {
-                    date1.setEnabled(false);
-
-                } else if (checkedId == R.id.radioYesBlood) {
-                    date1.setEnabled(true);
-                    date1.setOnClickListener(NotificationForm3.this);
-
-                }
-
-
-            }
-        });
         next3 = (Button) findViewById(R.id.next3);
 
         next3.setOnClickListener(new View.OnClickListener() {
@@ -83,8 +67,8 @@ public class NotificationForm3 extends ActionBarActivity implements View.OnClick
 
     public Notification objectBuilding(Notification notifaction)
     {
-        occupation = (EditText) findViewById(R.id.occupation);
-
+         occupation = (EditText) findViewById(R.id.occupation);
+        bloodTransfusion = (RadioGroup) findViewById(R.id.radioBlood);
         bloodTransfusionSelected = (RadioButton) findViewById(bloodTransfusion.getCheckedRadioButtonId());
         notifaction.setBloodTransfusion(bloodTransfusionSelected.getText().toString());
         notifaction.setFrequencyOfWorkAway(travelFrequency.getSelectedItem().toString());
@@ -107,7 +91,7 @@ public class NotificationForm3 extends ActionBarActivity implements View.OnClick
                     case R.id.illnessDate:
                         date.setText((monthOfYear + 1) + "/" + dayOfMonth + "/" + year);
                         break;
-                    case R.id.dateOfTransfusion:
+                    case R.id.investigationCaseNumber:
                         date1.setText((monthOfYear + 1) + "/" + dayOfMonth + "/" + year);
                         break;
 

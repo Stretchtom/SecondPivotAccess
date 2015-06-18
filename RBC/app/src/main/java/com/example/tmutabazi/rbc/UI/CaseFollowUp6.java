@@ -11,8 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+import com.example.tmutabazi.rbc.CaseFollowupClass.CaseFollowUpClass;
 import com.example.tmutabazi.rbc.R;
 
 import java.util.Calendar;
@@ -23,6 +26,11 @@ public class CaseFollowUp6 extends ActionBarActivity implements View.OnClickList
     private Spinner one;
     private Button next;
     private EditText date;
+    private EditText notes;
+    private RadioGroup isPcrtaken;
+    private RadioButton isPcrtakenRadioButton;
+    private RadioGroup completedDose;
+    private RadioButton completedDoseRadioButton;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_case_follow_up7);
@@ -33,14 +41,41 @@ public class CaseFollowUp6 extends ActionBarActivity implements View.OnClickList
         next = (Button) findViewById(R.id.button12);
         date = (EditText) findViewById(R.id.editText55);
         date.setOnClickListener(this);
+        isPcrtaken = (RadioGroup) findViewById(R.id.isPcrtaken);
+        completedDose = (RadioGroup) findViewById(R.id.completedDose);
+        notes = (EditText) findViewById(R.id.notes);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CaseFollowUpClass caseFollowUp = populateObject();
+
                 Intent ip = new Intent(CaseFollowUp6.this, CaseFollowUp7.class);
+                ip.putExtra("myObject", caseFollowUp);
                 startActivity(ip);
 
             }
-        });
+});
+        }
+
+    public CaseFollowUpClass populateObject ()
+    {
+        Intent intent = getIntent();
+        CaseFollowUpClass caseFollowUp = (CaseFollowUpClass) intent.getSerializableExtra("myObject");
+        int selected_id = isPcrtaken.getCheckedRadioButtonId();
+        isPcrtakenRadioButton = (RadioButton) findViewById( selected_id);
+        String isPcrTaken1 = isPcrtakenRadioButton.getText().toString();
+        caseFollowUp.setIsPcrtaken(isPcrTaken1);
+        int selected_id1 = completedDose.getCheckedRadioButtonId();
+        completedDoseRadioButton = (RadioButton) findViewById( selected_id);
+        String completedDose1 = completedDoseRadioButton.getText().toString();
+        caseFollowUp.setCompletedDose(completedDose1);
+        String pcrDate = date.getText().toString();
+        caseFollowUp.setPcrDate(pcrDate);
+        String notes1 = notes.getText().toString();
+        caseFollowUp.setNotes(notes1);
+        String treatmentGiven1 =  (one.getSelectedItem().toString());
+        caseFollowUp.setTreatmentGiven(treatmentGiven1);
+        return caseFollowUp;
     }
     public void onClick(View v) {
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT-4:00"));

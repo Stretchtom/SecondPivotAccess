@@ -9,7 +9,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.tmutabazi.rbc.CaseFollowupClass.CaseFollowUpClass;
 import com.example.tmutabazi.rbc.R;
 
 
@@ -44,8 +47,42 @@ public class CaseFollowUp4 extends ActionBarActivity {
 
            @Override
            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               Intent ip = new Intent(CaseFollowUp4.this, CaseFollowUp5.class);
-               startActivity(ip);
+
+               listOfItems.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+
+                   @Override
+                   public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                       TextView text = (TextView) view;
+                       String selectedItem = text.getText().toString();
+                       CaseFollowUpClass caseFollowUp = new CaseFollowUpClass();
+                      /** Toast.makeText(getApplicationContext(),
+
+                               selectedItem,
+
+                               Toast.LENGTH_SHORT).show();
+                       String day3= "Day 3 (following diagnosis)";*/
+                       if (selectedItem.trim().equals("Day 3 (following diagnosis)"))
+                       {
+                           caseFollowUp.setDay(3);
+                       }
+                       else if (selectedItem.trim().equals("Day 14 (following diagnosis)"))
+                       {
+                           caseFollowUp.setDay(14);
+                       }
+                       else
+                       {
+                           caseFollowUp.setDay(28);
+                       }
+
+                       Intent ip = new Intent(CaseFollowUp4.this, CaseFollowUp5.class);
+                       ip.putExtra("myObject", caseFollowUp);
+                       startActivity(ip);
+
+                   }
+               });
+
+
 
 
            }

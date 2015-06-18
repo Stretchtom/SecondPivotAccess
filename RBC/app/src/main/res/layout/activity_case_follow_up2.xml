@@ -45,7 +45,7 @@
         android:textColor="#ff000000"
         android:textSize="30dp" />
     <RadioGroup
-        android:id="@+id/radiodanger"
+        android:id="@+id/day3PresenceOfDangerSigns"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/textView52"
@@ -99,7 +99,7 @@
     <EditText
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText48"
+        android:id="@+id/day3Date"
         android:layout_below="@+id/textView52"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -127,15 +127,15 @@
         android:textColor="#ff000000"
         android:textSize="30dp"
         android:layout_above="@+id/textView56"
-        android:layout_toRightOf="@+id/radiodanger2"
-        android:layout_toEndOf="@+id/radiodanger2" />
+        android:layout_toRightOf="@+id/day14PresenceOfDangerSigns"
+        android:layout_toEndOf="@+id/day14PresenceOfDangerSigns" />
 
     <EditText
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText49"
+        android:id="@+id/day3Temperature"
         android:layout_alignTop="@+id/textView54"
         android:layout_toRightOf="@+id/textView56"
         android:layout_toEndOf="@+id/textView56" />
@@ -146,7 +146,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Day 14 (following diagnosis)"
         android:id="@+id/textView56"
-        android:layout_below="@+id/editText49"
+        android:layout_below="@+id/day3Temperature"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
@@ -166,7 +166,7 @@
         android:textColor="#ff000000"
         android:textSize="30dp" />
     <RadioGroup
-        android:id="@+id/radiodanger2"
+        android:id="@+id/day14PresenceOfDangerSigns"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView56"
@@ -220,7 +220,7 @@
     <EditText
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText50"
+        android:id="@+id/day14Date"
         android:layout_alignTop="@+id/textView58"
         android:layout_alignRight="@+id/textView55"
         android:layout_alignEnd="@+id/textView55"
@@ -232,7 +232,7 @@
         android:layout_height="wrap_content"
         android:text="Next"
         android:id="@+id/button8"
-        android:layout_below="@+id/editText50"
+        android:layout_below="@+id/day14Date"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>

@@ -55,11 +55,6 @@ public class Notification implements Serializable{
     private String completedDesignation;
     private String completedDate;
     private String sameAddress;
-    private String verifiedDate;
-    private String verifiedDesignation;
-    private String TravelInReturnDate;
-    private String outTravelSector;
-    private String outTravelDistrict;
     private int age;
     private int phoneNumber;
     private int caseNumber;
@@ -72,13 +67,13 @@ public class Notification implements Serializable{
     private int patientPhysicalCellID;
     private int patientPhysicalVillageID;
     private int occupationSectorID;
-
+    private int outTravelSectorID;
+    private int outTravelDistrictID;
     private int slideNumber;
     private int bloodSlideExaminingFacilityID;
     private int examiningOfficerID;
     private int DBScard;
     private int completedByID;
-    private String outTravelCountry;
 
     public Notification()
     {
@@ -90,10 +85,10 @@ public class Notification implements Serializable{
         this.hospitalId = hospital;
         this.facilityId = facility;
     }
-    public void setStatusPatient(String patientStatus)
+    public void setStatusPatient(String patientStatus, String refer)
     {
         this.typePatient = patientStatus;
-
+        this.refered = refer;
     }
    public void setPatientInformation(String firstName, String secondName, String gender, String nationality, int age, int phoneNumber, String DOB)
    {
@@ -153,7 +148,7 @@ public class Notification implements Serializable{
        this.fortytwoAboveDays = fortytwoAboveDays;
    }
 
-   public void setTravelledWithInRwandaForteenDays(String answer)
+   public void travelledWithInForteenDays(String answer)
    {
        this.inYesOrNo = answer;
    }
@@ -161,15 +156,15 @@ public class Notification implements Serializable{
     {
         this.inDateTravel = dateofTravel;
     }
-    public void setTravelledOutForteenDays(String answer)
+    public void travelledOutForteenDays(String answer)
     {
         this.outYesNo = answer;
     }
-    public void setOutTravelOutformation(String dateofTravel, String country, String district)
+    public void setOutTravelInformation(String dateofTravel, int districtID, int sectorID)
     {
         this.outDateTravel = dateofTravel;
-        this.outTravelCountry = country;
-        this.outTravelDistrict = district;
+        this.outTravelDistrictID = districtID;
+        this.outTravelSectorID = sectorID;
     }
     public void setPreventableMeasures(String measures)
     {
@@ -249,7 +244,8 @@ public class Notification implements Serializable{
         this.actionTaken = actionTaken;
     }
 
-    public void setCompletedBy( String completedDesignation, String completedDate) {
+    public void setCompletedByID(int completedByID, String completedDesignation, String completedDate) {
+        this.completedByID = completedByID;
         this.completedDesignation = completedDesignation;
         this.completedDate = completedDate;
     }
@@ -482,12 +478,12 @@ public class Notification implements Serializable{
         return occupationSectorID;
     }
 
-    public String getOutTravelSectorID() {
-        return outTravelSector;
+    public int getOutTravelSectorID() {
+        return outTravelSectorID;
     }
 
-    public String getOutTravelDistrictID() {
-        return outTravelDistrict;
+    public int getOutTravelDistrictID() {
+        return outTravelDistrictID;
     }
 
     public int getSlideNumber() {
@@ -532,23 +528,5 @@ public class Notification implements Serializable{
 
     public void setSameAddress(String sameAddress) {
         this.sameAddress = sameAddress;
-    }
-
-
-    public String getVerifiedDate() {
-        return verifiedDate;
-    }
-
-    public String getVerifiedDesignation() {
-        return verifiedDesignation;
-    }
-    public void setVerifiedInformation(String verifiedDate,String verifiedDesignation)
-    {
-        this.verifiedDate = verifiedDate;
-        this.verifiedDesignation = verifiedDesignation;
-    }
-
-    public void setRefered(String refered) {
-        this.refered = refered;
     }
 }

@@ -12,8 +12,8 @@
         android:text="Slide taken "
         android:id="@+id/textView66"
         android:layout_below="@+id/textView65"
-        android:layout_toRightOf="@+id/radiodanger3"
-        android:layout_toEndOf="@+id/radiodanger3"
+        android:layout_toRightOf="@+id/day28PresenceOfDangerSigns"
+        android:layout_toEndOf="@+id/day28PresenceOfDangerSigns"
         android:layout_marginTop="10dp"
         android:textColor="#ff000000"
         android:textSize="30dp" />
@@ -92,7 +92,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp" />
     <RadioGroup
-        android:id="@+id/radiogameto"
+        android:id="@+id/presenceOfGametocytes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText53"
@@ -143,7 +143,7 @@
         android:textColor="#ff000000"
         android:textSize="30dp" />
     <RadioGroup
-        android:id="@+id/radiospecies"
+        android:id="@+id/otherSpecies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView68"

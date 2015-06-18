@@ -87,7 +87,7 @@
     <EditText
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText25"
+        android:id="@+id/last_indoor"
         android:hint="Date of last indoor residual spraying"
         android:layout_below="@+id/textView34"
         android:layout_alignParentLeft="true"
@@ -102,8 +102,8 @@
         android:inputType="number"
         android:ems="10"
         android:hint="Number of LLINs found hang in the household"
-        android:id="@+id/editText26"
-        android:layout_below="@+id/editText25"
+        android:id="@+id/numberofLLINS"
+        android:layout_below="@+id/last_indoor"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="#ff000000"
@@ -117,7 +117,7 @@
         android:id="@+id/button4"
         android:textColor="#ff000000"
         android:textSize="15dp"
-        android:layout_below="@+id/editText26"
+        android:layout_below="@+id/numberofLLINS"
         android:layout_alignRight="@+id/textView34"
         android:layout_alignEnd="@+id/textView34" />
 

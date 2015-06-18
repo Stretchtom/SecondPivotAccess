@@ -13,7 +13,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+
+import com.example.tmutabazi.rbc.InvestigationClass.InvestigationClass;
+
 import com.example.tmutabazi.rbc.R;
+
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -23,6 +27,8 @@ public class InvestigationForm4 extends ActionBarActivity implements View.OnClic
     private Spinner one;
     private Spinner two;
     private Button next;
+
+    private EditText numberOfLLins;
     private EditText date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,23 +38,38 @@ public class InvestigationForm4 extends ActionBarActivity implements View.OnClic
         ab.setTitle("INVESTIGATION FORM    4 OUT OF 6");
         one = (Spinner)findViewById(R.id.spinner3);
         two = (Spinner)findViewById(R.id.spinner4);
-
         one.setAdapter(ArrayAdapter.createFromResource(this, R.array.RDTS, R.layout.spinner2));
         two.setAdapter(ArrayAdapter.createFromResource(this, R.array.TreatmentOptions, R.layout.spinner3));
         next = (Button) findViewById(R.id.button4);
-        date = (EditText) findViewById(R.id.editText25);
+
+        numberOfLLins = (EditText) findViewById(R.id.numberofLLINS);
+        date = (EditText) findViewById(R.id.last_indoor);
         date.setOnClickListener(this);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                InvestigationClass investigation = populateObject();
                 Intent ip = new Intent(InvestigationForm4.this, InvestigationForm5.class);
+                ip.putExtra("myObject", investigation);
                 startActivity(ip);
 
             }
         });
 
     }
-
+    public InvestigationClass populateObject ()
+    {
+        Intent intent = getIntent();
+        InvestigationClass investigation = (InvestigationClass) intent.getSerializableExtra("myObject");
+        String last_indoor = date.getText().toString();
+        investigation.setLast_indoor(last_indoor);
+        String numberOfLlins1 = numberOfLLins.getText().toString();
+        int  numberOfLlins2 = Integer.parseInt(numberOfLlins1);
+        investigation.setNumberOfLLINS(numberOfLlins2 );
+        String rdtResult =  (one.getSelectedItem().toString());
+        investigation.setRdtResult(rdtResult);
+        return investigation;
+    }
     public void onClick(View v) {
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT-4:00"));
         int year = calendar.get(Calendar.YEAR);
