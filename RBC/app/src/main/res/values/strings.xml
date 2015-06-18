@@ -1,0 +1,105 @@
+<resources>
+    <string name="app_name">RBC</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_notification">Notification</string>
+    <string name="title_activity_notification2">Notification2</string>
+    <string name="title_activity_permanent_address">PermanentAddress</string>
+    <string name="title_activity_notification3">Notification3</string>
+
+    <string-array name="frequency">
+        <item> Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+        <item>Annually</item>
+
+    </string-array>
+
+    <string-array name="workHome">
+        <item>Work</item>
+        <item>Home</item>
+
+    </string-array>
+    <string name="title_activity_notifcation4">Notifcation4</string>
+    <string name="title_activity_notification5">Notification5</string>
+    <string name="title_activity_notification6">Notification6</string>
+    <string name="title_activity_notification7">Notification7</string>
+    <string name="title_activity_notification8">Notification8</string>
+    <string name="title_activity_investigation_form">InvestigationForm</string>
+    <string name="title_activity_investigation_form1">InvestigationForm1</string>
+<string name="title_activity_investigation_form2">InvestigationForm2</string>
+<string name="title_activity_investigation_form3">InvestigationForm3</string>
+<string-array name="SlideResults">
+<item>Positive</item>
+<item>Negative</item>
+
+</string-array>
+    <string-array name="caseDetection">
+    <item>Reactive</item>
+    <item>Proactive</item>
+    <item>Other</item>
+    </string-array>
+    <string-array name="RDTS">
+        <item>Positive</item>
+        <item>Negative</item>
+
+    </string-array>
+    <string-array name="TreatmentOptions">
+        <item>ACTs</item>
+        <item>Quinine</item>
+        <item>Artesunate</item>
+        <item>Primaquine</item>
+        <item>Other</item>
+
+    </string-array>
+    <string-array name="TypeOfHabitat">
+        <item>Grouped</item>
+        <item>Scattered</item>
+        <item>Boarding(hall)</item>
+        <item>Camp site/temporary resettlement</item>
+       </string-array>
+    <string-array name="LocationOfHouse">
+        <item>Up-hill</item>
+        <item>Bottom hill</item>
+        <item>In Valley</item>
+
+    </string-array>
+    <string name="title_activity_investigation_form4">InvestigationForm4</string>
+    <string name="title_activity_investigation_form5">InvestigationForm5</string>
+    <string name="title_activity_case_follow_up">CaseFollowUp</string>
+
+    <string name="title_activity_dispatcher">Dispatcher</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_add_foci">addFOCI</string>
+    <string name="title_activity_investigation_form6">InvestigationForm6</string>
+    <string-array name="MethodOfDiagnosis">
+        <item>RDT</item>
+        <item>Slide</item>
+
+    </string-array>
+    <string-array name="species">
+        <item>P.vivax</item>
+        <item>P.ovale</item>
+        <item>P.malariae</item>
+
+    </string-array>
+    <string-array name="TreatmentGiven">
+        <item>ACTs</item>
+        <item>Quinine</item>
+        <item>Primaquine</item>
+
+
+    </string-array>
+    <string name="title_activity_case_follow_up2">CaseFollowUp2</string>
+    <string name="title_activity_case_follow_up3">CaseFollowUp3</string>
+    <string name="title_activity_case_follow_up4">CaseFollowUp4</string>
+    <string name="title_activity_case_follow_up5">CaseFollowUp5</string>
+    <string name="title_activity_case_follow_up7">CaseFollowUp7</string>
+    <string name="title_activity_case_follow_up8">CaseFollowUp8</string>
+
+    <string name="Prompt">Select...</string>
+    </resources>

@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.tmutabazi.rbc.UI.CaseFollowUp7">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Loss to follow up"
+        android:id="@+id/textView76"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+    <RadioGroup
+        android:id="@+id/radiofollowUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textView76"
+        android:orientation="horizontal">
+
+
+
+    <RadioButton
+        android:id="@+id/radioMalefollowUp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        android:checked="true"
+        android:layout_below="@+id/sName"
+        android:layout_toRightOf="@+id/textView76"
+        android:layout_alignRight="@+id/scrollView"
+        android:layout_alignEnd="@+id/scrollView"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <RadioButton
+        android:id="@+id/radiofollowUp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/radioMalefollowUp1"
+        android:text="No"
+        android:checked="false"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText57"
+        android:layout_below="@+id/textView76"
+        android:hint="Date of last contact with case before follow up"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:textSize="25dp" />
+
+    <EditText
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText58"
+        android:hint="Reasons for loss to follow up"
+        android:layout_below="@+id/editText57"
+        android:layout_alignLeft="@+id/editText57"
+        android:layout_alignStart="@+id/editText57"
+        android:layout_marginTop="10dp"
+        android:textSize="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:id="@+id/button13"
+        android:layout_marginTop="70dp"
+        android:textColor="#ff000000"
+        android:layout_below="@+id/editText58"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

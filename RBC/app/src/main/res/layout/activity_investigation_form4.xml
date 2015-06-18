@@ -1,0 +1,124 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.tmutabazi.rbc.UI.InvestigationForm4">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="RDTs result:"
+        android:id="@+id/textView31"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner3"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView31"
+        android:layout_toEndOf="@+id/textView31"
+        android:layout_marginLeft="70dp"
+        android:layout_marginStart="70dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Treatment given:"
+        android:id="@+id/textView32"
+        android:layout_below="@+id/textView31"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff090909"
+        android:textSize="30dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner4"
+        android:layout_below="@+id/textView31"
+        android:layout_alignLeft="@+id/spinner3"
+        android:layout_alignStart="@+id/spinner3"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="If other"
+        android:id="@+id/textView33"
+        android:layout_below="@+id/textView32"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText24"
+        android:layout_alignTop="@+id/textView33"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="History of Malaria Control Measures at Case Home"
+        android:id="@+id/textView34"
+        android:layout_below="@+id/editText24"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText25"
+        android:hint="Date of last indoor residual spraying"
+        android:layout_below="@+id/textView34"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="25dp" />
+
+    <EditText
+        android:layout_width="520dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Number of LLINs found hang in the household"
+        android:id="@+id/editText26"
+        android:layout_below="@+id/editText25"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ff000000"
+        android:textSize="25dp"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/button4"
+        android:textColor="#ff000000"
+        android:textSize="15dp"
+        android:layout_below="@+id/editText26"
+        android:layout_alignRight="@+id/textView34"
+        android:layout_alignEnd="@+id/textView34" />
+
+</RelativeLayout>

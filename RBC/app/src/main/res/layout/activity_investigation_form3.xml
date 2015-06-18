@@ -1,0 +1,208 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.tmutabazi.rbc.UI.InvestigationForm3"
+    android:id="@+id/a">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="GPS coordinates at home:"
+        android:id="@+id/textView20"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Lat"
+        android:id="@+id/textView22"
+        android:layout_below="@+id/textView20"
+        android:layout_alignLeft="@+id/textView20"
+        android:layout_alignStart="@+id/textView20"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText19"
+        android:layout_alignTop="@+id/textView22"
+        android:layout_alignRight="@+id/textView30"
+        android:layout_alignEnd="@+id/textView30" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Long"
+        android:id="@+id/textView23"
+        android:textColor="#ff010101"
+        android:textSize="30dp"
+        android:layout_alignTop="@+id/editText19"
+        android:layout_alignRight="@+id/textView28"
+        android:layout_alignEnd="@+id/textView28" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText20"
+        android:layout_above="@+id/textView24"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Elevation"
+        android:id="@+id/textView24"
+        android:layout_below="@+id/editText19"
+        android:layout_alignLeft="@+id/textView22"
+        android:layout_alignStart="@+id/textView22"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText21"
+        android:layout_alignTop="@+id/textView24"
+        android:layout_toLeftOf="@+id/button3"
+        android:layout_toStartOf="@+id/button3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="m"
+        android:id="@+id/textView25"
+        android:textColor="#ff000000"
+        android:textSize="30dp"
+        android:layout_alignTop="@+id/editText21"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignStart="@+id/button3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Type of case detection:"
+        android:id="@+id/textView26"
+        android:layout_below="@+id/editText21"
+        android:layout_alignLeft="@+id/textView24"
+        android:layout_alignStart="@+id/textView24"
+        android:layout_marginTop="10dp"
+        android:textSize="30dp"
+        android:textColor="#ff000000" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_below="@+id/editText21"
+        android:layout_toRightOf="@+id/textView28"
+        android:layout_toEndOf="@+id/textView28"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="If other"
+        android:id="@+id/textView27"
+        android:layout_below="@+id/textView26"
+        android:layout_alignLeft="@+id/textView26"
+        android:layout_alignStart="@+id/textView26"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText22"
+        android:layout_alignTop="@+id/textView27"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Diagnosis and treatment"
+        android:id="@+id/textView28"
+        android:layout_below="@+id/textView27"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Slide result:"
+        android:id="@+id/textView29"
+        android:layout_below="@+id/textView28"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:layout_below="@+id/textView28"
+        android:layout_toRightOf="@+id/editText19"
+        android:layout_toEndOf="@+id/editText19"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Parasites density"
+        android:id="@+id/textView30"
+        android:layout_below="@+id/textView29"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText23"
+        android:layout_alignLeft="@+id/textView23"
+        android:layout_alignStart="@+id/textView23"
+        android:layout_below="@+id/textView29"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/button3"
+        android:layout_alignTop="@+id/textView30"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#ff000000"
+        android:textSize="15dp" />
+
+</RelativeLayout>

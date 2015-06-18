@@ -1,0 +1,219 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.tmutabazi.rbc.UI.CaseFollowUp5">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Slide taken "
+        android:id="@+id/textView66"
+        android:layout_below="@+id/textView65"
+        android:layout_toRightOf="@+id/radiodanger3"
+        android:layout_toEndOf="@+id/radiodanger3"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+    <RadioGroup
+        android:id="@+id/radioslide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textView66"
+        android:orientation="horizontal"
+        >
+
+
+
+    <RadioButton
+        android:id="@+id/radioslide1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        android:layout_toRightOf="@+id/textView66"
+        android:checked="true"
+        android:layout_below="@+id/textView65"
+        android:layout_alignRight="@+id/scrollView"
+        android:layout_alignEnd="@+id/scrollView"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <RadioButton
+        android:id="@+id/radioslide2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/radioslide1"
+        android:text="No"
+        android:checked="false"
+        android:layout_below="@+id/textView65"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Slide results"
+        android:id="@+id/textView67"
+        android:textColor="#ff000000"
+        android:textSize="30dp"
+        android:layout_below="@+id/radioslide"
+        android:layout_alignLeft="@+id/textView66"
+        android:layout_alignStart="@+id/textView66"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="650dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText53"
+        android:hint="Average number of asexual P. falciparum parasites (/ul)"
+        android:layout_below="@+id/textView67"
+        android:layout_marginTop="10dp"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Presence of gametocytes forms"
+        android:id="@+id/textView68"
+        android:textColor="#ff000000"
+        android:textSize="30dp"
+
+        android:layout_below="@+id/editText53"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+    <RadioGroup
+        android:id="@+id/radiogameto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText53"
+        android:layout_toRightOf="@+id/textView68"
+        android:orientation="horizontal"
+        >
+
+
+
+    <RadioButton
+        android:id="@+id/radiosgameto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        android:checked="true"
+        android:layout_toRightOf="@+id/textView68"
+        android:layout_below="@+id/editText53"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <RadioButton
+        android:id="@+id/radiosgameto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No"
+        android:checked="false"
+        android:textColor="#ff000000"
+        android:textSize="30dp"
+        android:layout_alignTop="@+id/radiosgameto1"
+        android:layout_toRightOf="@+id/radiosspecies1"
+        android:layout_toEndOf="@+id/radiosspecies1"
+        android:layout_marginTop="10dp" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="were species other than P Faliciparum"
+        android:id="@+id/textView69"
+        android:layout_below="@+id/textView68"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+    <RadioGroup
+        android:id="@+id/radiospecies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView68"
+        android:layout_toRightOf="@+id/textView69"
+        android:orientation="horizontal"
+        >
+
+
+
+    <RadioButton
+        android:id="@+id/radiosspecies1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        android:layout_toRightOf="@+id/textView69"
+        android:checked="true"
+        android:layout_below="@+id/textView68"
+        android:layout_alignRight="@+id/scrollView"
+        android:layout_alignEnd="@+id/scrollView"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <RadioButton
+        android:id="@+id/radiosspecies2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No"
+        android:layout_toRightOf="@+id/radiosspecies1"
+
+        android:checked="false"
+        android:layout_below="@+id/textView68"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp"
+        android:layout_marginRight="30dp" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="If yes, which species"
+        android:id="@+id/textView70"
+        android:layout_below="@+id/textView69"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner8"
+        android:layout_below="@+id/textView69"
+        android:layout_toRightOf="@+id/textView69"
+        android:layout_toEndOf="@+id/textView69"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/button11"
+        android:textColor="#ff000000"
+        android:layout_below="@+id/spinner8"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

@@ -1,0 +1,215 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.tmutabazi.rbc.UI.addFOCI"
+    android:id="@+id/foci">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reporting Date"
+        android:id="@+id/textView49"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/report_date"
+        android:layout_alignTop="@+id/textView49"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="Health Facility catchement Area"
+        android:id="@+id/textView50"
+        android:textColor="#ff000000"
+        android:textSize="30dp"
+        android:layout_below="@+id/report_date"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/healthyfacility"
+        android:layout_alignBottom="@+id/textView50"
+        android:layout_alignRight="@+id/report_date"
+        android:layout_alignEnd="@+id/report_date"
+        android:layout_alignTop="@+id/textView50"
+        android:inputType="text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date of Classification"
+        android:id="@+id/textView51"
+        android:textColor="#ff000000"
+        android:textSize="30dp"
+        android:layout_below="@+id/textView50"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignRight="@+id/textView50"
+        android:layout_alignEnd="@+id/textView50" />
+
+    <EditText
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText35"
+        android:layout_alignBottom="@+id/textView51"
+        android:layout_alignRight="@+id/healthyfacility"
+        android:layout_alignEnd="@+id/healthyfacility"
+        android:layout_alignTop="@+id/textView51" />
+
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="Catchement Population Number"
+        android:id="@+id/textView52"
+        android:textColor="#ff000000"
+        android:textSize="27dp"
+        android:layout_below="@+id/textView51"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/editText36"
+        android:layout_toStartOf="@+id/editText36" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText36"
+        android:layout_alignBottom="@+id/textView52"
+        android:layout_alignRight="@+id/editText35"
+        android:layout_alignEnd="@+id/editText35"
+        android:layout_alignTop="@+id/textView52" />
+
+    <RadioGroup
+        android:id="@+id/breedingsite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/textView52"
+        android:layout_alignRight="@+id/editText36"
+        android:layout_alignEnd="@+id/editText36">
+
+
+
+    <RadioButton
+        android:id="@+id/radioYestravel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        android:checked="true"
+        android:textSize="30dp"
+        android:layout_alignTop="@+id/radioNotravel"
+        android:layout_alignRight="@+id/editText36"
+        android:layout_alignEnd="@+id/editText36" />
+
+    <RadioButton
+        android:id="@+id/radioNotravel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No"
+        android:checked="false"
+        android:textSize="30dp"
+        android:layout_alignBottom="@+id/textView53"
+        android:layout_toLeftOf="@+id/radioYestravel"
+        android:layout_toStartOf="@+id/radioYestravel" />
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mosquito Breeding Sites present"
+        android:id="@+id/textView53"
+        android:textColor="#ff000000"
+        android:textSize="30dp"
+        android:layout_below="@+id/textView52"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/editText35"
+        android:layout_toStartOf="@+id/editText35"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="GPS"
+        android:id="@+id/textView54"
+        android:textColor="#ff000000"
+        android:textSize="27dp"
+        android:layout_below="@+id/textView53"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Lat"
+        android:id="@+id/textView55"
+        android:textColor="#ff000000"
+        android:textSize="27dp"
+        android:layout_alignTop="@+id/textView54"
+        android:layout_toRightOf="@+id/textView54"
+        android:layout_toEndOf="@+id/textView54" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView57"
+        android:textColor="#ff000000"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/textView55"
+        android:layout_toRightOf="@+id/textView49"
+      />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Long"
+        android:id="@+id/textView58"
+        android:textColor="#ff000000"
+        android:textSize="27dp"
+        android:layout_alignTop="@+id/textView57"
+        android:layout_toRightOf="@+id/textView52"
+        android:layout_toEndOf="@+id/textView52" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView59"
+        android:textColor="#ff000000"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/textView58"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/textView58"
+        android:layout_toEndOf="@+id/textView58" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/nextFoci"
+        android:layout_below="@+id/textView55"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

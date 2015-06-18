@@ -1,0 +1,253 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.tmutabazi.rbc.UI.NotificationForm6"
+    android:id="@+id/notification6">
+
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="RDT"
+        android:id="@+id/textView37"
+        android:textSize="30dp"
+        android:textColor="#ff000000"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/rdtDate"
+        android:hint="Date perfomed"
+        android:textSize="30dp"
+        android:layout_below="@+id/textView39"
+        android:layout_toEndOf="@+id/radiogametocytes"
+        android:layout_alignLeft="@+id/editText9"
+        android:layout_alignStart="@+id/editText9" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rdtofficer"
+        android:layout_alignBottom="@+id/textView38"
+        android:layout_alignLeft="@+id/rdtDate"
+        android:layout_alignStart="@+id/rdtDate"
+        android:layout_alignRight="@+id/rdtDate"
+        android:layout_alignEnd="@+id/rdtDate"
+        android:layout_alignTop="@+id/textView38" />
+
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="Officer performing RDT"
+        android:id="@+id/textView38"
+        android:textSize="30dp"
+        android:textColor="#ff000000"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/textView37"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="RDT result"
+        android:id="@+id/textView39"
+        android:textSize="30dp"
+        android:textColor="#ff000000"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/textView38"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioGroup
+        android:id="@+id/radioRDT"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/rdtofficer"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+
+
+    <RadioButton
+        android:id="@+id/radioPositiveRDT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Positive"
+        android:checked="true"
+        android:textSize="30dp"
+        />
+
+
+    <RadioButton
+        android:id="@+id/radioNegativeRDT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Negative"
+        android:checked="false"
+        android:textSize="30dp"
+         />
+    </RadioGroup>
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="Blood Slide"
+        android:id="@+id/textView40"
+        android:textSize="30dp"
+        android:textColor="#ff000000"
+        android:layout_below="@+id/radioRDT"
+        android:layout_alignRight="@+id/textView42"
+        android:layout_alignEnd="@+id/textView42" />
+
+    <EditText
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/bsDate"
+        android:hint="Date perfomed"
+        android:textSize="30dp"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/slidenumber"
+        android:hint="Slide Number"
+        android:textSize="30dp"
+        android:layout_alignTop="@+id/editText9"
+        android:layout_alignRight="@+id/textView42"
+        android:layout_alignEnd="@+id/textView42" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editText9"
+        android:hint="Date examined"
+        android:textSize="30dp"
+        android:inputType="date"
+        android:layout_below="@+id/rdtDate"
+        android:layout_toEndOf="@+id/slidenumber"
+        android:layout_alignLeft="@+id/bsDate"
+        android:layout_alignStart="@+id/bsDate" />
+
+    <EditText
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/bsdatereceived"
+        android:hint="Date result received"
+        android:textSize="30dp"
+        android:layout_below="@+id/slidenumber"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/editText9"
+        android:layout_toStartOf="@+id/editText9" />
+
+    <RadioGroup
+        android:id="@+id/radioBS"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_alignTop="@+id/textView41"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+
+
+    <RadioButton
+        android:id="@+id/radioPositiveBS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Positive"
+        android:checked="true"
+        android:textSize="30dp"
+         />
+
+
+    <RadioButton
+        android:id="@+id/radioNegativeBS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Negative"
+        android:checked="false"
+        android:textSize="30dp"
+        />
+    </RadioGroup>
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="BS result"
+        android:id="@+id/textView41"
+        android:textSize="30dp"
+        android:textColor="#ff000000"
+        android:layout_below="@+id/bsdatereceived"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Gametocytes present"
+        android:id="@+id/textView42"
+        android:textSize="30dp"
+        android:textColor="#ff000000"
+        android:layout_below="@+id/radioBS"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioGroup
+        android:id="@+id/radiogametocytes"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_alignBottom="@+id/textView42"
+        android:layout_toRightOf="@+id/textView41"
+        android:layout_toEndOf="@+id/textView41">
+
+
+
+    <RadioButton
+        android:id="@+id/radioPositivegametocytes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        android:checked="true"
+        android:textSize="30dp"
+        />
+
+
+
+    <RadioButton
+        android:id="@+id/radioNegativegametocytes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No"
+        android:checked="false"
+        android:textSize="30dp"
+         />
+    </RadioGroup>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/next6"
+        android:layout_alignBottom="@+id/radiogametocytes"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
