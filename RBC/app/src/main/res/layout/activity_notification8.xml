@@ -21,32 +21,28 @@
     <EditText
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:id="@+id/actionTaken"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
         android:id="@+id/completedby"
-        android:layout_below="@+id/actionTaken"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:hint="Completed by"
         android:textSize="30dp"
-        android:layout_toLeftOf="@+id/actionTaken"
-        android:layout_toStartOf="@+id/actionTaken" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/dateofcompletion"
+        android:layout_alignEnd="@+id/dateofcompletion"
+        android:layout_below="@+id/textView12"
+        android:layout_marginTop="60dp" />
 
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/designation"
-        android:hint="Designation"
+        android:id="@+id/verifiedDesignation"
+        android:hint="Verified Designation"
         android:textSize="30dp"
-        android:layout_alignTop="@+id/completedby"
-        android:layout_alignRight="@+id/actionTaken"
-        android:layout_alignEnd="@+id/actionTaken" />
+        android:layout_below="@+id/dateofcompletion"
+        android:layout_alignRight="@+id/completedDesignation"
+        android:layout_alignEnd="@+id/completedDesignation"
+        android:inputType="text"
+        android:layout_toRightOf="@+id/dateofcompletion"
+        android:layout_toEndOf="@+id/dateofcompletion" />
 
     <EditText
         android:layout_width="320dp"
@@ -54,56 +50,44 @@
         android:id="@+id/dateofcompletion"
         android:hint="Date of completion"
         android:textSize="30dp"
+        android:inputType="date"
         android:layout_below="@+id/completedby"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:inputType="date"
-        android:layout_toStartOf="@+id/designation"
-        android:layout_toLeftOf="@+id/designation" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:id="@+id/facilitytoDH"
-        android:hint="Verified by"
+        android:id="@+id/verifiedDate"
+        android:hint="Verified Date"
         android:textSize="30dp"
-        android:inputType="date"
-        android:layout_below="@+id/spinner11"
+        android:inputType="text"
+        android:layout_above="@+id/submit"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/completedby"
-        android:layout_alignEnd="@+id/completedby" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText11"
+        android:id="@+id/completedDesignation"
         android:textSize="29dp"
-        android:inputType="date"
         android:hint="Designation"
-        android:layout_alignTop="@+id/facilitytoDH"
-        android:layout_alignRight="@+id/spinner11"
-        android:layout_alignEnd="@+id/spinner11"
-        android:layout_alignLeft="@+id/designation"
-        android:layout_alignStart="@+id/designation" />
+        android:layout_alignTop="@+id/completedby"
+
+        android:layout_toRightOf="@+id/completedby"
+        android:layout_toEndOf="@+id/completedby"
+        android:inputType="text" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
-        android:id="@+id/button9"
+        android:id="@+id/submit"
         android:textSize="20dp"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/verifiedDesignation"
         android:layout_toRightOf="@+id/textView46"
         android:layout_toEndOf="@+id/textView46" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner11"
-        android:layout_below="@+id/dateofcompletion"
-        android:layout_toRightOf="@+id/dateofcompletion"
-        android:layout_toEndOf="@+id/dateofcompletion" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -112,8 +96,62 @@
         android:id="@+id/textView12"
         android:textSize="30dp"
         android:textColor="#ff000000"
-        android:layout_alignTop="@+id/spinner11"
+        android:layout_marginTop="57dp"
+        android:layout_below="@+id/textView46"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <RadioGroup
+        android:id="@+id/radioActionTaken"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/textView46"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:id="@+id/radioCaseInvest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CaseInvestigation"
+            android:checked="true"
+            android:textSize="25dp" />
+
+        <RadioButton
+            android:id="@+id/radioContactScreen"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:text="ContactScreening"
+            android:checked="false"
+            android:textSize="25dp" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:text="New Text"
+        android:id="@+id/latitude"
+        android:layout_below="@+id/textView12"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/completedDesignation"
+        android:layout_alignRight="@+id/textView12"
+        android:layout_alignEnd="@+id/textView12"
+        android:textColor="#ff000000"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:text="New Text"
+        android:id="@+id/longtitude"
+        android:layout_above="@+id/completedDesignation"
+        android:layout_toRightOf="@+id/completedby"
+        android:layout_below="@+id/textView12"
+        android:layout_alignRight="@+id/completedDesignation"
+        android:layout_alignEnd="@+id/completedDesignation"
+        android:textSize="30dp"
+        android:textColor="#ff000000" />
 
 </RelativeLayout>

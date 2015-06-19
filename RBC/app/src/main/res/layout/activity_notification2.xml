@@ -30,8 +30,8 @@
         android:hint="Phone Number"
         android:textSize="25dp"
         android:layout_below="@+id/DOB"
-        android:layout_alignRight="@+id/village"
-        android:layout_alignEnd="@+id/village"
+        android:layout_alignRight="@+id/residentialDistrict"
+        android:layout_alignEnd="@+id/residentialDistrict"
         android:layout_toRightOf="@+id/textView15"
         android:layout_toEndOf="@+id/textView15" />
 
@@ -76,23 +76,24 @@
         android:layout_below="@+id/phoneNumber"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-    [12:38:34 PM] stretch tom:  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Residential District"
-    android:id="@+id/textView15"
-    android:textSize="30dp"
-    android:textColor="#ff000000"
 
-    android:layout_below="@+id/textView14"
-    android:layout_toLeftOf="@+id/village"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Residential District"
+        android:id="@+id/textView15"
+        android:textSize="30dp"
+        android:textColor="#ff000000"
 
-    <EditText
+        android:layout_below="@+id/textView14"
+        android:layout_toLeftOf="@+id/residentialDistrict"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:id="@+id/village"
+        android:id="@+id/residentialDistrict"
         android:layout_alignTop="@+id/textView15"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -105,20 +106,21 @@
         android:textSize="30dp"
         android:textColor="#ff000000"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/village"
+        android:layout_below="@+id/residentialDistrict"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
+    <Spinner
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:id="@+id/sector"
+        android:id="@+id/sektor"
         android:layout_alignBottom="@+id/textView16"
         android:layout_alignRight="@+id/textView15"
         android:layout_alignEnd="@+id/textView15"
         android:layout_toRightOf="@+id/textView14"
         android:layout_toEndOf="@+id/textView14"
-        android:layout_marginTop="10dp" />
+        android:layout_below="@+id/residentialDistrict"
+        android:spinnerMode="dialog" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -128,17 +130,18 @@
         android:textSize="30dp"
         android:textColor="#ff000000"
         android:layout_alignTop="@+id/textView16"
-        android:layout_alignStart="@+id/village" />
+        android:layout_alignStart="@+id/residentialDistrict" />
 
-    <EditText
+    <Spinner
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/cell"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:inputType="text"
-        android:layout_marginTop="10dp"
-        android:layout_alignBottom="@+id/textView16" />
+        android:layout_alignBottom="@+id/textView16"
+        android:layout_below="@+id/residentialDistrict"
+        android:spinnerMode="dialog" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -152,14 +155,15 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp" />
 
-    <EditText
+    <Spinner
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText5"
+        android:id="@+id/village"
         android:layout_alignTop="@+id/textView18"
-        android:layout_toRightOf="@+id/sector"
+        android:layout_toRightOf="@+id/sektor"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:spinnerMode="dialog" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -168,7 +172,7 @@
         android:id="@+id/textView19"
         android:textSize="30dp"
         android:textColor="#ff000000"
-        android:layout_below="@+id/editText5"
+        android:layout_alignBottom="@+id/householdName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -176,11 +180,11 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:id="@+id/householdName"
-        android:layout_below="@+id/editText5"
+        android:layout_below="@+id/village"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5" />
+        android:layout_alignLeft="@+id/village"
+        android:layout_alignStart="@+id/village" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -195,14 +199,15 @@
         android:layout_marginTop="10dp"
         android:layout_toLeftOf="@+id/textView17"
         android:layout_toStartOf="@+id/textView17" />
-    [12:38:50 PM] stretch tom: <RadioGroup
-    android:id="@+id/radioAddress"
-    android:layout_width="wrap_content"
-    android:layout_height="60dp"
-    android:orientation="horizontal"
-    android:layout_alignTop="@+id/textView20"
-    android:layout_alignRight="@+id/householdName"
-    android:layout_alignEnd="@+id/householdName">
+
+    <RadioGroup
+        android:id="@+id/radioAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_alignTop="@+id/textView20"
+        android:layout_alignRight="@+id/householdName"
+        android:layout_alignEnd="@+id/householdName">
 
 
 
@@ -213,7 +218,7 @@
         android:text="Yes"
         android:checked="true"
         android:textSize="30dp"
-        />
+         />
 
     <RadioButton
         android:id="@+id/radioNoAddress"
@@ -223,7 +228,7 @@
         android:checked="false"
         android:textSize="30dp"
         />
-</RadioGroup>
+    </RadioGroup>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

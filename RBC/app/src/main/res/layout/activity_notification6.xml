@@ -28,8 +28,8 @@
         android:textSize="30dp"
         android:layout_below="@+id/textView39"
         android:layout_toEndOf="@+id/radiogametocytes"
-        android:layout_alignLeft="@+id/age"
-        android:layout_alignStart="@+id/age" />
+        android:layout_alignLeft="@+id/editText9"
+        android:layout_alignStart="@+id/editText9" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -127,7 +127,7 @@
         android:id="@+id/slidenumber"
         android:hint="Slide Number"
         android:textSize="30dp"
-        android:layout_alignTop="@+id/age"
+        android:layout_alignTop="@+id/editText9"
         android:layout_alignRight="@+id/textView42"
         android:layout_alignEnd="@+id/textView42" />
 
@@ -135,7 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/age"
+        android:id="@+id/editText9"
         android:hint="Date examined"
         android:textSize="30dp"
         android:inputType="date"
@@ -155,8 +155,8 @@
         android:layout_below="@+id/slidenumber"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/age"
-        android:layout_toStartOf="@+id/age" />
+        android:layout_toLeftOf="@+id/editText9"
+        android:layout_toStartOf="@+id/editText9" />
 
     <RadioGroup
         android:id="@+id/radioBS"

@@ -14,21 +14,23 @@
         android:id="@+id/textView"
         android:textSize="30dp"
         android:textColor="#ff000000"
-        android:layout_above="@+id/textView2"
+
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
 
-    <EditText
+    <Spinner
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:id="@+id/district1"
+        android:id="@+id/village"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/hospital"
         android:layout_alignStart="@+id/hospital"
         android:layout_alignParentEnd="true"
         android:layout_alignRight="@+id/fName"
-        android:layout_alignEnd="@+id/fName" />
+        android:layout_alignEnd="@+id/fName"
+        android:spinnerMode="dialog"
+        android:prompt="@string/Prompt" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,23 +38,23 @@
         android:text="Hospital"
         android:id="@+id/textView2"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/district"
+        android:layout_below="@+id/village"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="#ff000000"
         android:textSize="30dp" />
 
-    <EditText
+    <Spinner
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:id="@+id/hospital"
         android:layout_alignBottom="@+id/textView2"
         android:inputType="text"
-        android:layout_marginTop="10dp"
         android:layout_alignLeft="@+id/facilityName"
         android:layout_alignStart="@+id/facilityName"
         android:layout_alignParentEnd="true"
-        android:layout_alignEnd="@+id/fName" />
+        android:layout_alignEnd="@+id/fName"
+        android:layout_below="@+id/village" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,11 +64,11 @@
         android:textColor="#ff000000"
         android:textSize="30dp"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/hospital" />
 
-    <EditText
+    <Spinner
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:id="@+id/facilityName"
@@ -74,7 +76,8 @@
         android:layout_marginTop="5dp"
         android:layout_alignParentEnd="true"
         android:layout_alignRight="@+id/fName"
-        android:layout_alignEnd="@+id/fName" />
+        android:layout_alignEnd="@+id/fName"
+        android:layout_alignBottom="@+id/textView3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,30 +86,8 @@
         android:id="@+id/textView4"
         android:textColor="#ff000000"
         android:textSize="30dp"
-
-
-
         android:layout_alignBottom="@+id/notification_date"
-
-        android:layout_alignLeft="@+id/facilityName"
-        android:layout_alignStart="@+id/facilityName" />
-
-    <EditText
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/CaseCode"
-
-        android:layout_below="@+id/facilityName"
-        android:layout_alignRight="@+id/dateOfInvestigation"
-        android:layout_alignEnd="@+id/dateOfInvestigation" />
-
-        android:layout_alignTop="@+id/textView4"
-        android:layout_alignLeft="@+id/spinner10"
-        android:layout_alignStart="@+id/spinner10"
-        android:layout_alignRight="@+id/facilityName"
-        android:layout_alignEnd="@+id/facilityName"
-        android:inputType="number" />
-
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -115,7 +96,7 @@
         android:id="@+id/textView5"
         android:textColor="#ff000000"
         android:textSize="30dp"
-        android:layout_above="@+id/textView6"
+        android:layout_above="@+id/sName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -126,8 +107,9 @@
 
         android:inputType="text"
         android:layout_below="@+id/spinner10"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toLeftOf="@+id/textView6"
+        android:layout_toStartOf="@+id/textView6" />
 
     <EditText
         android:layout_width="320dp"
@@ -135,16 +117,18 @@
         android:id="@+id/sName"
         android:layout_below="@+id/fName"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/next1"
+        android:layout_toEndOf="@+id/next1" />
 
     <RadioGroup
-        android:id="@+id/housesWithHoles"
+        android:id="@+id/radioSex"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:orientation="horizontal"
-        android:layout_below="@+id/sName"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView">
+        android:layout_alignTop="@+id/sName"
+        android:layout_toLeftOf="@+id/CaseCode"
+        android:layout_toStartOf="@+id/CaseCode">
 
 
 
@@ -183,7 +167,9 @@
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_toLeftOf="@+id/next1"
-        android:layout_toStartOf="@+id/next1">
+        android:layout_toStartOf="@+id/next1"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
 
 
         <RadioButton
@@ -191,7 +177,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="In patient"
-        android:checked="true"
+        android:checked="false"
         android:textSize="30dp" />
 
         <RadioButton
@@ -199,7 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Out patient"
-            android:checked="true"
+            android:checked="false"
             android:textSize="30dp" />
 
     </RadioGroup>
@@ -208,9 +194,8 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:orientation="horizontal"
-        android:layout_alignBottom="@+id/textView10"
         android:layout_toEndOf="@+id/textView10"
-        android:layout_toRightOf="@+id/textView10">
+        android:layout_alignTop="@+id/textView10">
 
 
 
@@ -233,13 +218,8 @@
         android:checked="false"
         android:textSize="30dp"
         android:layout_alignTop="@+id/radioYesref"
-
-        android:layout_alignLeft="@+id/district"
-        android:layout_alignStart="@+id/district" />
-
         android:layout_alignLeft="@+id/notification_date"
         android:layout_alignStart="@+id/notification_date" />
-
     </RadioGroup>
     <TextView
         android:layout_width="wrap_content"
@@ -248,58 +228,29 @@
         android:id="@+id/textView7"
         android:textColor="#ff000000"
         android:textSize="30dp"
-
-        android:layout_alignTop="@+id/dateOfInvestigation"
-
-        android:layout_below="@+id/sName"
-
+        android:layout_below="@+id/textView5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Age"
-        android:id="@+id/textView8"
-        android:textColor="#ff000000"
-        android:textSize="30dp"
-        android:layout_below="@+id/sName"
-        android:layout_toLeftOf="@+id/CaseCode"
-        android:layout_toStartOf="@+id/CaseCode" />
-
-    <EditText
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/dateOfInvestigation"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:inputType="number" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
         android:text="Date"
         android:id="@+id/textView9"
         android:textColor="#ff000000"
         android:textSize="30dp"
-        android:layout_below="@+id/facilityName"
+        android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-
-
-
         android:id="@+id/notification_date"
-
         android:layout_alignTop="@+id/textView9"
         android:layout_toRightOf="@+id/textView7"
-        android:layout_toEndOf="@+id/textView7" />
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
 
     <TextView
         android:layout_width="320dp"
@@ -308,11 +259,11 @@
         android:id="@+id/textView6"
         android:textColor="#ff000000"
         android:textSize="30dp"
-        android:layout_below="@+id/fName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_alignEnd="@+id/textView5" />
+        android:layout_alignBottom="@+id/fName"
+        android:layout_toRightOf="@+id/textView11"
+        android:layout_below="@+id/spinner10"
+        android:layout_toLeftOf="@+id/secondName"
+        android:layout_toStartOf="@+id/secondName" />
 
     <TextView
         android:layout_width="320dp"
@@ -340,10 +291,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner10"
         android:layout_below="@+id/radioRefered"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/textView4"
-        android:layout_toEndOf="@+id/textView4" />
+        android:layout_toRightOf="@+id/textView10"
+        android:layout_alignRight="@+id/sName"
+        android:layout_alignEnd="@+id/sName" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -351,35 +301,29 @@
         android:text="Name of Facility refered to"
         android:id="@+id/textView11"
         android:textColor="#ff000000"
-
-        android:textSize="30dp"
-        android:layout_below="@+id/housesWithHoles"
+        android:textSize="25dp"
+        android:layout_alignBottom="@+id/spinner10"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/DOBinput"
-        android:layout_alignBottom="@+id/textView11"
-        android:layout_alignLeft="@+id/housesWithHoles"
-        android:layout_alignStart="@+id/housesWithHoles"
-        android:inputType="date" />
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/CaseCode"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-    <Button
-        android:layout_width="100dp"
+    <EditText
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:text="Next"
-        android:id="@+id/next1"
-        android:layout_alignTop="@+id/DOBinput"
-        android:layout_alignRight="@+id/dateOfInvestigation"
-        android:layout_alignEnd="@+id/dateOfInvestigation" />
-
-
-        android:textSize="25dp"
-        android:layout_below="@+id/radioRefered"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
+        android:id="@+id/secondName"
+        android:inputType="text"
+        android:layout_above="@+id/sName"
+        android:layout_toEndOf="@+id/radioSex"
+        android:layout_alignLeft="@+id/next1"
+        android:layout_alignStart="@+id/next1" />
 
 </RelativeLayout>
