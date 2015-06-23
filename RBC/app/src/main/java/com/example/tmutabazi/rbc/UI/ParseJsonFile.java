@@ -1,10 +1,8 @@
 package com.example.tmutabazi.rbc.UI;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -18,26 +16,11 @@ import com.example.tmutabazi.rbc.JsonHelperClasses.HealthCenter;
 import com.example.tmutabazi.rbc.JsonHelperClasses.Hospital;
 import com.example.tmutabazi.rbc.JsonHelperClasses.Province;
 import com.example.tmutabazi.rbc.JsonHelperClasses.Sector;
-import com.example.tmutabazi.rbc.JsonHelperClasses.StaticArrayLists;
 import com.example.tmutabazi.rbc.JsonHelperClasses.Village;
 import com.example.tmutabazi.rbc.R;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ParseJsonFile extends ActionBarActivity {
 
@@ -53,34 +36,22 @@ public class ParseJsonFile extends ActionBarActivity {
     private ArrayList<Hospital> hospitalObjects = new ArrayList<Hospital>();
     private ArrayList<HealthCenter> healthCenterObjects = new ArrayList<HealthCenter>();
     Database database = new Database(this);
-    ProgressDialog progressDialog;
-    Boolean answer;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parse_json_file);
         countryText= (TextView) findViewById(R.id.textView13);
-
-        answer = database.doesDatabaseExist(this,"locationDataDB.db");
-
-        if(answer.equals(false))
-        {
-            new RetrieveDataFromDB().execute();
-        }
-
+       // new RetrieveDataFromDB().execute();
         //ArrayList <HealthCenter> country= database.getHealthCenterObject();
         //displayHealthCenterObject(country);
-       // int districtNumber = database.getDistrictNumber("Nyarugenge");
+        int districtNumber = database.getDistrictNumber("Nyarugenge");
 
 
-       // ArrayList<HealthCenter> sector = database.getHealthCenterObject(districtNumber);
-       // displayHealthCenterObject(sector);
+        ArrayList<HealthCenter> sector = database.getHealthCenterObject(districtNumber);
+        displayHealthCenterObject(sector);
 
 
     }
-
-
-
 
     public void displaySectorObject (ArrayList<Sector> sector)
     {
@@ -419,11 +390,6 @@ public class ParseJsonFile extends ActionBarActivity {
 
     class RetrieveDataFromDB extends AsyncTask<Void, Void, Void>
     {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            progressDialog = ProgressDialog.show(ParseJsonFile.this, "Installing", "Downloading...");
-        }
 
         protected Void doInBackground(Void... params) {
 
@@ -431,7 +397,7 @@ public class ParseJsonFile extends ActionBarActivity {
 
 
 
-           String url_to_use = "http://www.rwanda.byethost12.com/Json.txt";
+           /** String url_to_use = "http://www.rwanda.byethost12.com/Json.txt";
             HttpClient clientVariable = new DefaultHttpClient();
             HttpPost postVariable = new HttpPost(url_to_use);
             List<NameValuePair> valuePair = new ArrayList<NameValuePair>();
@@ -463,7 +429,7 @@ public class ParseJsonFile extends ActionBarActivity {
             {
                 e.printStackTrace();
             }
-
+                    **/
             return null;
 
         }
@@ -478,9 +444,9 @@ public class ParseJsonFile extends ActionBarActivity {
 
 
 
-           //String testing = null;
-            try {
-                JSONArray array = new JSONArray(result);
+          // String testing = null;
+            //try {
+                /**JSONArray array = new JSONArray(result);
                 for (int i = 0; i < array.length(); i++) {
                     JSONObject jsonObject = array.getJSONObject(i);
                     String type = jsonObject.getString("type");
@@ -655,12 +621,11 @@ public class ParseJsonFile extends ActionBarActivity {
                         healthCenterObjects.add(healthCenter);
 
                     }
-                }
-
+                }**/
 
 
                 // set arrayLists
-                StaticArrayLists.setCountryObjects(countryObjects);
+                /** StaticArrayLists.setCountryObjects(countryObjects);
                  StaticArrayLists.setDistrictObjects(districtObjects);
                  StaticArrayLists.setProvinceObjects(provinceObjects);
                  StaticArrayLists.setSectorObjects(sectorObjects);
@@ -676,7 +641,7 @@ public class ParseJsonFile extends ActionBarActivity {
                    database.insertCellObject();
                    database.insertVillageObject();
                    database.insertHospitalObject();
-                   database.insertHealthCenterObject();
+                   database.insertHealthCenterObject();**/
 
 
                 String message = "Excellent";
@@ -685,11 +650,8 @@ public class ParseJsonFile extends ActionBarActivity {
                         message,
 
                         Toast.LENGTH_SHORT).show();
-
-                Intent ip = new Intent(ParseJsonFile.this, Dispatcher.class);
-                startActivity(ip);
-            }
-        catch (JSONException e) {
+           // }
+        /**catch (JSONException e) {
                 e.printStackTrace();
                 String message = "Something went wrong";
                 Toast.makeText(getApplicationContext(),
@@ -698,7 +660,8 @@ public class ParseJsonFile extends ActionBarActivity {
 
                         Toast.LENGTH_SHORT).show();
 
-            }
+            }**/
+
 
 
         }

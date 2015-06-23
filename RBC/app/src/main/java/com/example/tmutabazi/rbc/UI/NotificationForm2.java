@@ -15,9 +15,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.example.tmutabazi.rbc.Database.Database;
 import com.example.tmutabazi.rbc.Notifiation.Notification;
 import com.example.tmutabazi.rbc.R;
 
@@ -38,13 +36,6 @@ public class NotificationForm2 extends ActionBarActivity implements View.OnClick
     private RadioButton sameAddressSelected;
     Notification notification;
     Button next2;
-    ArrayList<String> tExp;
-    ArrayList<String> sectorNames;
-    ArrayList<String> cellNames;
-    ArrayList<String> villageNames;
-    Database db = new Database(this);
-     ArrayAdapter<String> adp2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,149 +59,45 @@ public class NotificationForm2 extends ActionBarActivity implements View.OnClick
          }
 */
 
-
-        tExp = new ArrayList<String>();
-        sectorNames = new ArrayList<String>();
-        cellNames = new ArrayList<String>();
-        villageNames = new ArrayList<String>();
-        tExp.clear();
-        tExp = db.getDistricts();
-        tExp.add(0,"Select District");
+        ArrayList tExp = new ArrayList();
+        for(int j=1;j<=50;j++)
+        {
+            tExp.add(j);
+        }
+        tExp.add(0,"Select One");
         final Spinner sp = (Spinner) findViewById(R.id.residentialDistrict);
         final Spinner sp1 = (Spinner) findViewById(R.id.sektor);
         final Spinner sp2 = (Spinner) findViewById(R.id.cell);
-        final Spinner sp3 = (Spinner) findViewById(R.id.district);
+        final Spinner sp3 = (Spinner) findViewById(R.id.village);
         final ArrayAdapter<String> adp1=new ArrayAdapter<String>(this, R.layout.spinner,tExp);
         adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp.setAdapter(adp1);
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
 
-                if (position == 0) {
+                if(position == 0)
+                {
                     sp1.setEnabled(false);
                     sp2.setEnabled(false);
                     sp3.setEnabled(false);
-                    sp1.setAdapter(null);
-                    sp2.setAdapter(null);
-                    sp3.setAdapter(null);
-                } else {
-                    String itemSelectedSector = sp.getSelectedItem().toString();
-                    // int districtNumber = db.getDistrictNumber(itemSelected);
+                }
+                else {
 
-                    if(sectorNames.isEmpty())
-                    {
-                        Toast.makeText(getBaseContext(), itemSelectedSector, Toast.LENGTH_SHORT).show();
-                        sectorNames = db.getSectors(itemSelectedSector);
-                        sectorNames.add(0, "Select One");
-                        final ArrayAdapter<String> adp2 = setAdapterNow(sectorNames);
-                        adp2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        sp1.setAdapter(adp2);
-                        sp1.setEnabled(true);
-                        sp2.setEnabled(false);
-                        sp3.setEnabled(false);
-                        sp2.setAdapter(null);
-                        sp3.setAdapter(null);
-                    }
-                    else
-                    {
-
-                        sectorNames = new ArrayList<String>();
-                        sectorNames = db.getSectors(itemSelectedSector);
-                        sectorNames.add(0, "Select One");
-                        final ArrayAdapter<String> adp2 = setAdapterNow(sectorNames);
-                        adp2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        sp1.setAdapter(adp2);
-                        sp2.setEnabled(false);
-                        sp3.setEnabled(false);
-                        sp2.setAdapter(null);
-                        sp3.setAdapter(null);
-                    }
-
-
-
+                    sp1.setEnabled(true);
+                    sp1.setAdapter(adp1);
                     sp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                            if (position == 0) {
+                            if(position == 0)
+                            {
 
-                                sp2.setEnabled(false);
-                                sp3.setEnabled(false);
-                                sp2.setAdapter(null);
-                                sp3.setAdapter(null);
-
-                            } else {
-
-                                String itemSelected = sp1.getSelectedItem().toString();
-                                if(cellNames.isEmpty()) {
-                                    cellNames = db.getCells(itemSelected);
-                                    cellNames.add(0, "Select One");
-                                    final ArrayAdapter<String> adp2 = setAdapterNow(cellNames);
-                                    sp2.setAdapter(adp2);
-                                    sp2.setEnabled(true);
-
-                                }
-                                else
-                                {
-                                    cellNames = new ArrayList<String>();
-                                    cellNames = db.getCells(itemSelected);
-                                    cellNames.add(0, "Select One");
-                                    final ArrayAdapter<String> adp2 = setAdapterNow(cellNames);
-                                    sp2.setAdapter(adp2);
-                                }
-                                sp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                    @Override
-                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                        if (position == 0) {
-
-
-                                        } else {
-                                            String itemSelected = sp2.getSelectedItem().toString();
-                                            //int cellID = db.getCellNumber(itemSelected);
-                                           if(villageNames.isEmpty()) {
-                                               villageNames = db.getVillages(itemSelected);
-                                               villageNames.add(0, "Select Village");
-                                               final ArrayAdapter<String> adp3 = setAdapterNow(villageNames);
-                                               sp3.setAdapter(adp3);
-                                               sp3.setEnabled(true);
-                                           }
-                                            else
-                                           {
-                                               villageNames = new ArrayList<String>();
-                                               villageNames = db.getVillages(itemSelected);
-                                               villageNames.add(0, "Select Village");
-                                               final ArrayAdapter<String> adp3 = setAdapterNow(villageNames);
-                                               sp3.setAdapter(adp3);
-                                           }
-                                            sp3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                                @Override
-                                                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                                    if (position == 0) {
-
-                                                    } else {
-                                                        String itemSelected = sp3.getSelectedItem().toString();
-
-                                                    }
-                                                }
-
-                                                @Override
-                                                public void onNothingSelected(AdapterView<?> parent) {
-
-                                                }
-                                            });
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onNothingSelected(AdapterView<?> parent) {
-
-                                    }
-                                });
-
-
+                            }
+                            else
+                            {
+                                sp2.setEnabled(true);
                             }
                         }
 
@@ -271,13 +158,6 @@ public class NotificationForm2 extends ActionBarActivity implements View.OnClick
         notification.setSameAddress(sameAddressSelected.getText().toString());
         return notification;
     }
-
-    public ArrayAdapter<String> setAdapterNow (ArrayList<String> arrayList)    {
-        final ArrayAdapter<String> adp1=new ArrayAdapter<String>(this, R.layout.spinner,arrayList);
-
-        return adp1;
-    }
-
 
     public void onClick(final View v) {
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT-4:00"));
