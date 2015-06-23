@@ -15,8 +15,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
 
+import com.example.tmutabazi.rbc.Database.Database;
 import com.example.tmutabazi.rbc.Notifiation.Notification;
 import com.example.tmutabazi.rbc.R;
 
@@ -36,7 +36,13 @@ public class NotificationForm extends ActionBarActivity implements View.OnClickL
     private EditText surname;
     private RadioGroup gender;
     private RadioButton genderSelected;
+    private  Spinner facilityRefered;
     Notification notification;
+    ArrayList<String> districts;
+    ArrayList<String > hospital;
+    ArrayList<String > facilityName;
+    Boolean answer;
+    Database db = new Database(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,22 +50,52 @@ public class NotificationForm extends ActionBarActivity implements View.OnClickL
         android.support.v7.app.ActionBar ab = getSupportActionBar();
         ab.setTitle("NOTIFICATION FORM   1 OUT 8");
 
-        ArrayList tExp = new ArrayList();
-        for(int i=1;i<=50;i++)
-        {
-            tExp.add(i);
-        }
-        tExp.add(0,"Select One");
-        Spinner sp = (Spinner) findViewById(R.id.village);
-        ArrayAdapter<String> adp1=new ArrayAdapter<String>(this, R.layout.spinner,tExp);
+        districts = db.getDistricts();
+        districts.add(0, "Select One");
+        hospital = db.getHospitals();
+        hospital.add(0, "Select One");
+        final Spinner sp = (Spinner) findViewById(R.id.district);
+        final Spinner sp1 = (Spinner) findViewById(R.id.hospital);
+        final Spinner sp2 = (Spinner) findViewById(R.id.facilityName);
+        final ArrayAdapter<String> adp1=new ArrayAdapter<String>(this, R.layout.spinner,districts);
         adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp.setAdapter(adp1);
+        final ArrayAdapter<String> adp3 = setAdapterNow(hospital);
+        adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp1.setAdapter(adp3);
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(NotificationForm.this, "Here it is selected",
-                        Toast.LENGTH_SHORT).show();
+                if(position==0)
+                {
+
+                }
+                else
+                {
+                    String itemSelectedDistrict = sp.getSelectedItem().toString();
+                    if(facilityName != null) {
+                        facilityName = db.getHealthCenters(itemSelectedDistrict);
+                        facilityName.add(0,"Select One");
+                        final ArrayAdapter<String> adp2 = setAdapterNow(facilityName);
+                        adp2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        sp2.setAdapter(adp2);
+                        sp2.setEnabled(true);
+                    }
+                    else
+                    {
+                        facilityName = new ArrayList<String>();
+                        facilityName = db.getHealthCenters(itemSelectedDistrict);
+                        facilityName.add(0,"Select One");
+                        final ArrayAdapter<String> adp2 = setAdapterNow(facilityName);
+                        adp2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        sp2.setAdapter(adp2);
+
+                    }
+
+                }
+
+
             }
 
             @Override
@@ -68,120 +104,131 @@ public class NotificationForm extends ActionBarActivity implements View.OnClickL
             }
         });
 
-        next1 = (Button) findViewById(R.id.next1);
-        date = (EditText) findViewById(R.id.notification_date);
-        date.setOnClickListener(this);
-        refered = (RadioGroup) findViewById(R.id.radioRefered);
-        patient_type = (RadioGroup) findViewById(R.id.radioPatient);
+                next1 = (Button) findViewById(R.id.next1);
+                date = (EditText) findViewById(R.id.notification_date);
+                date.setOnClickListener(this);
+                refered = (RadioGroup) findViewById(R.id.radioRefered);
+                patient_type = (RadioGroup) findViewById(R.id.radioPatient);
+                facilityRefered = (Spinner) findViewById(R.id.spinner10);
 
 
+                patient_type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-        patient_type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        if (checkedId == R.id.radioInpatient) {
+                            for (int i = 0; i < refered.getChildCount(); i++) {
+                                refered.getChildAt(i).setEnabled(true);
 
-                if (checkedId == R.id.radioInpatient) {
-                    for (int i = 0; i < refered.getChildCount(); i++) {
-                        refered.getChildAt(i).setEnabled(true);
+                            }
+                            facilityRefered.setEnabled(true);
+                            facilityRefered.setAdapter(adp1);
+                            final ArrayAdapter<String> adp2 = setAdapterNow(facilityName);
+                            adp2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            sp2.setAdapter(adp2);
+                        } else if (checkedId == R.id.radioOutpatient) {
+                            for (int i = 0; i < refered.getChildCount(); i++) {
+                                refered.getChildAt(i).setEnabled(false);
+
+                            }
+                            facilityRefered.setAdapter(null);
+                            facilityRefered.setEnabled(false);
+                        }
+
+
                     }
-                } else if (checkedId == R.id.radioOutpatient) {
-                    for (int i = 0; i < refered.getChildCount(); i++) {
-                        refered.getChildAt(i).setEnabled(false);
+                });
+                next1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        notification = new Notification();
+                        notification = objectBuilding(notification);
+
+                        firstName = (EditText) findViewById(R.id.fName);
+                        surname = (EditText) findViewById(R.id.sName);
+                        gender = (RadioGroup) findViewById(R.id.radioSex);
+                        genderSelected = (RadioButton) findViewById(gender.getCheckedRadioButtonId());
+
+
+                        Intent ip = new Intent(NotificationForm.this, NotificationForm2.class);
+                        ip.putExtra("firstName", firstName.getText().toString());
+                        ip.putExtra("surname", surname.getText());
+                        ip.putExtra("gender", genderSelected.getText().toString());
+                        ip.putExtra("object", notification);
+
+                        startActivity(ip);
+
+
                     }
+                });
+            }
+
+            public Notification objectBuilding(Notification notification) {
+
+
+                notification.setDate(date.getText().toString());
+                case_no = (EditText) findViewById(R.id.CaseCode);
+                notification.setCaseNumber(Integer.parseInt(case_no.getText().toString()));
+                patient_typeSelected = (RadioButton) findViewById(patient_type.getCheckedRadioButtonId());
+                notification.setStatusPatient(patient_typeSelected.getText().toString());
+                if (patient_typeSelected.getText().toString().equals("In patient")) {
+                    referedSelected = (RadioButton) findViewById(refered.getCheckedRadioButtonId());
+                    notification.setRefered(referedSelected.getText().toString());
                 }
 
+                return notification;
 
             }
-        });
-        next1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                notification = new Notification();
-               notification = objectBuilding(notification);
 
-                firstName = (EditText) findViewById(R.id.fName);
-                surname = (EditText) findViewById(R.id.sName);
-                gender = (RadioGroup) findViewById(R.id.radioSex);
-                genderSelected = (RadioButton) findViewById(gender.getCheckedRadioButtonId());
+    public ArrayAdapter<String> setAdapterNow (ArrayList<String> arrayList)    {
+        final ArrayAdapter<String> adp1=new ArrayAdapter<String>(this, R.layout.spinner,arrayList);
 
-
-
-
-                Intent ip = new Intent(NotificationForm.this, NotificationForm8.class);
-                ip.putExtra("firstName",firstName.getText().toString());
-                ip.putExtra("surname", surname.getText());
-                ip.putExtra("gender", genderSelected.getText().toString());
-                ip.putExtra("object", notification);
-
-                startActivity(ip);
-
-
-
-            }
-        });
+        return adp1;
     }
-    public Notification objectBuilding(Notification notification)
-    {
 
-
-        notification.setDate(date.getText().toString());
-        case_no = (EditText) findViewById(R.id.CaseCode);
-        notification.setCaseNumber(Integer.parseInt(case_no.getText().toString()));
-        patient_typeSelected = (RadioButton) findViewById(patient_type.getCheckedRadioButtonId());
-        notification.setStatusPatient(patient_typeSelected.getText().toString());
-        if(patient_typeSelected.getText().toString().equals("In patient"))
-        {
-            referedSelected = (RadioButton) findViewById(refered.getCheckedRadioButtonId());
-            notification.setRefered(referedSelected.getText().toString());
-        }
-
-        return notification;
-
-    }
     public void onClick(View v) {
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT-4:00"));
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int minute = calendar.get(Calendar.MINUTE);
+                Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT-4:00"));
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int minute = calendar.get(Calendar.MINUTE);
 
 
-        DatePickerDialog datePicker=new DatePickerDialog(NotificationForm.this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                  int dayOfMonth) {
-                date.setText((monthOfYear + 1) + "/" + dayOfMonth + "/" + year);
+                DatePickerDialog datePicker = new DatePickerDialog(NotificationForm.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                          int dayOfMonth) {
+                        date.setText((monthOfYear + 1) + "/" + dayOfMonth + "/" + year);
 
-                //Toast.makeText(ReminderActivity.this, year + "year " + (monthOfYear + 1) + "month " + dayOfMonth + "day", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(ReminderActivity.this, year + "year " + (monthOfYear + 1) + "month " + dayOfMonth + "day", Toast.LENGTH_SHORT).show();
+                    }
+                }, year, month, day);
+                datePicker.show();
+
             }
-        }, year, month, day);
-        datePicker.show();
 
-    }
+            @Override
+            public boolean onCreateOptionsMenu(Menu menu) {
+                // Inflate the menu; this adds items to the action bar if it is present.
+                getMenuInflater().inflate(R.menu.menu_notification, menu);
+                return true;
+            }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_notification, menu);
-        return true;
-    }
+            @Override
+            public boolean onOptionsItemSelected(MenuItem item) {
+                // Handle action bar item clicks here. The action bar will
+                // automatically handle clicks on the Home/Up button, so long
+                // as you specify a parent activity in AndroidManifest.xml.
+                int id = item.getItemId();
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+                //noinspection SimplifiableIfStatement
+                if (id == R.id.action_settings) {
+                    return true;
+                }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                return super.onOptionsItemSelected(item);
+            }
+
+
         }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
-
-}

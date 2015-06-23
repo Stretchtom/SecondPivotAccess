@@ -1,9 +1,12 @@
 package com.example.tmutabazi.rbc.Database;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.tmutabazi.rbc.JsonHelperClasses.Cell;
 import com.example.tmutabazi.rbc.JsonHelperClasses.Country;
@@ -12,8 +15,10 @@ import com.example.tmutabazi.rbc.JsonHelperClasses.HealthCenter;
 import com.example.tmutabazi.rbc.JsonHelperClasses.Hospital;
 import com.example.tmutabazi.rbc.JsonHelperClasses.Province;
 import com.example.tmutabazi.rbc.JsonHelperClasses.Sector;
+import com.example.tmutabazi.rbc.JsonHelperClasses.StaticArrayLists;
 import com.example.tmutabazi.rbc.JsonHelperClasses.Village;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -118,6 +123,12 @@ public class Database extends SQLiteOpenHelper {
    private static final String provinceId7 = "provinceId";
    private static final String countryId8 = "countryId";
 
+    ArrayList<Sector> sectorObjectsFunction;
+    ArrayList<Cell> cellObjectsFunction;
+    ArrayList<Village> villageObjectsFunction;
+    ArrayList<HealthCenter> healthCenterObjects1;
+    ArrayList<Country> countryObjectsFunction;
+
 
     public Database (Context context)
     {
@@ -190,7 +201,7 @@ public class Database extends SQLiteOpenHelper {
          this.onCreate(db);
     }
 
-    /**public void insertCountryObject ()
+    public void insertCountryObject ()
     {
         ArrayList<Country> country = StaticArrayLists.getCountryObjects();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -407,7 +418,7 @@ public class Database extends SQLiteOpenHelper {
 
        db.close();
 
-   }**/
+   }
  public ArrayList<Country> getCountryObject ()
     {
         String selectQuery = "SELECT  * FROM " +  TABLE_NAME1;
@@ -719,5 +730,125 @@ public class Database extends SQLiteOpenHelper {
         }
         //db.close();
         return selectedNumber;
+    }
+
+    public  ArrayList<String> getDistricts ()
+    {
+        ArrayList<District> districtObjects = getDistrictObject();
+        ArrayList<String> districts = new ArrayList<String>();
+        for (int i =0; i<districtObjects.size(); i++)
+        {
+            District districtObject = districtObjects.get(i);
+            districts.add(districtObject.getName());
+        }
+
+        return districts;
+    }
+    public  ArrayList<String> getSectors (String districtName)
+    {
+        int districtNumber = getDistrictNumber(districtName);
+        if(sectorObjectsFunction != null)
+        {
+            sectorObjectsFunction.clear();
+        }
+         sectorObjectsFunction = getSectorObject(districtNumber);
+        ArrayList<String> sectors = new ArrayList<String>();
+
+        for (int i =0; i<sectorObjectsFunction.size(); i++)
+        {
+            Sector sectorObject = sectorObjectsFunction.get(i);
+            sectors.add(sectorObject.getName().toString());
+            Log.d("Sector Name", sectorObject.getName().toString());
+        }
+
+        return sectors;
+    }
+    public  ArrayList<String> getCountries ()
+    {
+        if(countryObjectsFunction != null)
+        {
+            countryObjectsFunction.clear();
+        }
+        countryObjectsFunction = getCountryObject();
+        ArrayList<String> countries = new ArrayList<String>();
+        for (int i =0; i<countryObjectsFunction.size(); i++)
+        {
+            Country countryObject = countryObjectsFunction.get(i);
+            countries.add(countryObject.getName());
+        }
+
+
+        return countries;
+    }
+    public  ArrayList<String> getCells (String sectorName)
+    {
+        int sectorNumber = getSectorNumber(sectorName);
+
+        if(cellObjectsFunction != null)
+        {
+            cellObjectsFunction.clear();
+        }
+         cellObjectsFunction = getCellObject(sectorNumber);
+        ArrayList<String> cells = new ArrayList<String>();
+        for (int i =0; i<cellObjectsFunction.size(); i++)
+        {
+            Cell cellObject = cellObjectsFunction.get(i);
+            cells.add(cellObject.getName());
+        }
+
+        return cells;
+    }
+    public  ArrayList<String> getVillages (String cellName)
+    {
+        int cellNumber = getCellNumber(cellName);
+        if(villageObjectsFunction != null)
+        {
+            villageObjectsFunction.clear();
+        }
+        villageObjectsFunction= getVillageObject(cellNumber);
+
+        ArrayList<String> villages = new ArrayList<String>();
+        for (int i =0; i<villageObjectsFunction.size(); i++)
+        {
+            Village villageObject = villageObjectsFunction.get(i);
+            villages.add(villageObject.getName());
+            Log.d("Village Name", villageObject.getName().toString());
+        }
+
+        return villages;
+    }
+    public  ArrayList<String> getHospitals ()
+    {
+        ArrayList<Hospital> hospitalObjects = getHospitalObject();
+        ArrayList<String> hospitals = new ArrayList<String>();
+        for (int i =0; i<hospitalObjects.size(); i++)
+        {
+            Hospital hospitalObject = hospitalObjects.get(i);
+            hospitals.add(hospitalObject.getName());
+        }
+
+        return hospitals;
+    }
+    public  ArrayList<String> getHealthCenters (String districtName)
+    {
+        int districtNumber = getDistrictNumber(districtName);
+        if (healthCenterObjects1!=null)
+        {
+            healthCenterObjects1.clear();
+        }
+        healthCenterObjects1 = getHealthCenterObject(districtNumber);
+        ArrayList<String> healthCenters = new ArrayList<String>();
+
+        for (int i =0; i<healthCenterObjects1.size(); i++)
+        {
+            HealthCenter healthCenterObject = healthCenterObjects1.get(i);
+            healthCenters.add(healthCenterObject.getName());
+        }
+
+        return healthCenters;
+    }
+    public static boolean doesDatabaseExist(ContextWrapper context, String dbName) {
+        File dbFile = context.getDatabasePath(dbName);
+        return dbFile.exists();
     }
 }

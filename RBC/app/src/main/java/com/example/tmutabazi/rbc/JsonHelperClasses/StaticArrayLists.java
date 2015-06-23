@@ -5,8 +5,8 @@ import java.util.ArrayList;
 /**
  * Created by smanzi on 6/15/2015.
  */
-public class StaticLocationMethods {
-   /** private static ArrayList<Country> countryObjects = new ArrayList<Country>();
+public class StaticArrayLists {
+   private static ArrayList<Country> countryObjects = new ArrayList<Country>();
     private static ArrayList<Province> provinceObjects = new ArrayList<Province>();
     private static ArrayList<District> districtObjects = new ArrayList<District>();
     private static ArrayList<Sector> sectorObjects = new ArrayList<Sector>();
@@ -77,19 +77,6 @@ public class StaticLocationMethods {
 
     public static void setHealthCenterObjects(ArrayList<HealthCenter> healthCenterObjects) {
         StaticArrayLists.healthCenterObjects = healthCenterObjects;
-    }**/
-
-    public static ArrayList<String> getDistricts (ArrayList<District> districtObjects)
-    {
-        ArrayList<String> districts = new ArrayList<String>();
-
-        return districts;
-    }
-    public static ArrayList<String> getCountries (ArrayList<Country> countryObjects)
-    {
-        ArrayList<String> countries = new ArrayList<String>();
-
-        return countries;
     }
 
 

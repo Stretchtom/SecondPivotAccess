@@ -9,6 +9,7 @@
     <string name="title_activity_notification3">Notification3</string>
 
     <string-array name="frequency">
+        <item> Select One</item>
         <item> Daily</item>
         <item>Weekly</item>
         <item>Monthly</item>
@@ -17,6 +18,7 @@
     </string-array>
 
     <string-array name="workHome">
+        <item> Select One</item>
         <item>Work</item>
         <item>Home</item>
 
@@ -31,21 +33,25 @@
 <string name="title_activity_investigation_form2">InvestigationForm2</string>
 <string name="title_activity_investigation_form3">InvestigationForm3</string>
 <string-array name="SlideResults">
+    <item> Select One</item>
 <item>Positive</item>
 <item>Negative</item>
 
 </string-array>
     <string-array name="caseDetection">
+     <item> Select One</item>
     <item>Reactive</item>
     <item>Proactive</item>
     <item>Other</item>
     </string-array>
     <string-array name="RDTS">
+        <item> Select One</item>
         <item>Positive</item>
         <item>Negative</item>
 
     </string-array>
     <string-array name="TreatmentOptions">
+        <item> Select One</item>
         <item>ACTs</item>
         <item>Quinine</item>
         <item>Artesunate</item>
@@ -54,12 +60,14 @@
 
     </string-array>
     <string-array name="TypeOfHabitat">
+        <item> Select One</item>
         <item>Grouped</item>
         <item>Scattered</item>
         <item>Boarding(hall)</item>
         <item>Camp site/temporary resettlement</item>
        </string-array>
     <string-array name="LocationOfHouse">
+        <item> Select One</item>
         <item>Up-hill</item>
         <item>Bottom hill</item>
         <item>In Valley</item>
@@ -88,6 +96,7 @@
 
     </string-array>
     <string-array name="TreatmentGiven">
+        <item> Select One</item>
         <item>ACTs</item>
         <item>Quinine</item>
         <item>Primaquine</item>
@@ -96,6 +105,7 @@
     </string-array>
 
 <string-array name="district">
+
 <item>Nyarugenge</item>
 <item>Rubavu</item>
 
@@ -114,12 +124,14 @@
 
     </string-array>
     <string-array name="sector">
+        <item> Select One</item>
         <item>Sector A</item>
         <item>Sector B</item>
 
 
     </string-array>
     <string-array name="cell">
+        <item> Select One</item>
         <item>Cell A</item>
         <item>Cell B</item>
 

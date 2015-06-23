@@ -14,7 +14,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.example.tmutabazi.rbc.Database.Database;
 import com.example.tmutabazi.rbc.R;
 
 import java.util.ArrayList;
@@ -34,10 +36,24 @@ public class Dispatcher extends ActionBarActivity {
     private ArrayList<RBCDrawerItem> navDrawerItems;
     Button notification;
     Button investigation;
+    Boolean answer;
+    Database db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dispatcher);
+
+        answer = db.doesDatabaseExist(this,"locationDataDB.db");
+        if(answer.equals(false))
+        {
+            Intent ip = new Intent(Dispatcher.this, ParseJsonFile.class);
+            startActivity(ip);
+
+        }
+        else
+        {
+            Toast.makeText(getBaseContext(), "Here Here", Toast.LENGTH_SHORT).show();
+        }
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
@@ -156,8 +172,9 @@ public class Dispatcher extends ActionBarActivity {
                 fragment.setArguments(arg);
                 break;
             case 1:
-                Intent ip = new Intent(Dispatcher.this, ParseJsonFile.class);
-                startActivity(ip);
+                    Intent ip = new Intent(Dispatcher.this, NotificationForm.class);
+                    startActivity(ip);
+
                 break;
             case 2:
                 Intent ip1 = new Intent(Dispatcher.this, InvestigationForm.class);
@@ -168,7 +185,8 @@ public class Dispatcher extends ActionBarActivity {
                 startActivity(case1);
                 break;
             case 4:
-                Intent FOCI = new Intent(Dispatcher.this, addFOCI.class);
+                Intent FOCI = new Intent(Dispatcher.this, PermanentAddress.class);
+                FOCI.putExtra("Activity", "addFoci");
                 startActivity(FOCI);
                 break;
 

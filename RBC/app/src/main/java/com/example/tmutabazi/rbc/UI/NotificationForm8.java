@@ -23,9 +23,7 @@ import android.widget.Toast;
 import com.example.tmutabazi.rbc.Notifiation.Notification;
 import com.example.tmutabazi.rbc.OfflineMode.OfflineDatabase;
 import com.example.tmutabazi.rbc.R;
-import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -88,17 +86,8 @@ public class NotificationForm8 extends ActionBarActivity implements LocationList
             public void onClick(View v) {
                 notification = objectBuilding(notification);
 
-                //Intent ip = new Intent(NotificationForm8.this, Dispatcher.class);
-                //startActivity(ip);
-                db = new OfflineDatabase(NotificationForm8.this);
-                Gson gson = new Gson();
-                String object = gson.toJson(notification);
-              // db.InsertNotification(object);
-                ArrayList<String> allObject = db.retrieveNotification();
-                notification = gson.fromJson(allObject.get(2), Notification.class);
-
-                Toast.makeText(NotificationForm8.this, notification.getCaseNumber() + ".",
-                        Toast.LENGTH_SHORT).show();
+                Intent ip = new Intent(NotificationForm8.this, Dispatcher.class);
+                startActivity(ip);
 
 
 

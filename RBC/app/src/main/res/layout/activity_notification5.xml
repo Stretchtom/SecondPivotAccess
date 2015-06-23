@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yes"
-        android:checked="true"
+        android:checked="false"
         android:textSize="30dp"
         />
 
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No"
-        android:checked="false"
+        android:checked="true"
         android:textSize="30dp"
          />
     </RadioGroup>
@@ -67,21 +67,14 @@
     <Spinner
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:id="@+id/districtOut"
-        android:layout_alignBottom="@+id/textView35"
-        android:layout_centerHorizontal="true"
-        android:hint="District"
-        android:textSize="30dp" />
-
-    <Spinner
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
         android:id="@+id/countryOut"
         android:layout_alignBottom="@+id/textView35"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:hint="Country"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:layout_toRightOf="@+id/textView33"
+        android:layout_toEndOf="@+id/textView33" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -126,7 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yes"
-        android:checked="true"
+        android:checked="false"
         android:textSize="30dp"
          />
 
@@ -136,7 +129,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No"
-        android:checked="false"
+        android:checked="true"
         android:textSize="30dp"
          />
     </RadioGroup>
@@ -195,8 +188,8 @@
         android:layout_above="@+id/textView36"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/districtOut"
-        android:layout_toRightOf="@+id/districtOut" />
+        android:layout_toEndOf="@+id/checkBox6"
+        android:layout_toRightOf="@+id/checkBox6" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -214,8 +207,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner11"
         android:layout_alignBottom="@+id/next5"
-        android:layout_toRightOf="@+id/country"
-        android:layout_toLeftOf="@+id/countryOut"
-        android:layout_toStartOf="@+id/countryOut" />
+        android:layout_alignRight="@+id/textView13"
+        android:layout_alignEnd="@+id/textView13"
+        android:layout_toRightOf="@+id/textView35"
+        android:layout_toEndOf="@+id/textView35" />
 
 </RelativeLayout>

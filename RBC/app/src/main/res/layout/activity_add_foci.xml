@@ -40,11 +40,11 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp" />
 
-    <EditText
+    <Spinner
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/healthyfacility"
+        android:id="@+id/healthyfacilitynames"
         android:layout_alignBottom="@+id/textView50"
         android:layout_alignRight="@+id/report_date"
         android:layout_alignEnd="@+id/report_date"
@@ -70,10 +70,10 @@
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:id="@+id/editText35"
+        android:id="@+id/dateOfClassification"
         android:layout_alignBottom="@+id/textView51"
-        android:layout_alignRight="@+id/healthyfacility"
-        android:layout_alignEnd="@+id/healthyfacility"
+        android:layout_alignRight="@+id/healthyfacilitynames"
+        android:layout_alignEnd="@+id/healthyfacilitynames"
         android:layout_alignTop="@+id/textView51" />
 
     <TextView
@@ -97,8 +97,8 @@
         android:ems="10"
         android:id="@+id/editText36"
         android:layout_alignBottom="@+id/textView52"
-        android:layout_alignRight="@+id/editText35"
-        android:layout_alignEnd="@+id/editText35"
+        android:layout_alignRight="@+id/dateOfClassification"
+        android:layout_alignEnd="@+id/dateOfClassification"
         android:layout_alignTop="@+id/textView52" />
 
     <RadioGroup
@@ -144,8 +144,8 @@
         android:layout_below="@+id/textView52"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/editText35"
-        android:layout_toStartOf="@+id/editText35"
+        android:layout_toLeftOf="@+id/dateOfClassification"
+        android:layout_toStartOf="@+id/dateOfClassification"
         android:layout_marginTop="10dp" />
 
     <TextView
